@@ -17,11 +17,12 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::prefix('admin')->group(function () {
+Route::get('/admin/login', function () {
+    return view('admin.login');
+});
 
-    Route::get('/login', function () {
-        return view('admin.login');
-    });
+Route::group(['prefix' => 'admin', 'middleware' => ['role:admin', 'auth']], function () {
+
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
