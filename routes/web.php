@@ -31,6 +31,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin', 'auth']], func
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
+
+    // User
     Route::get('/user/fetch', [UserController::class, 'fetchDataTable'])->name('user.fetch');
     Route::get('/user', [UserController::class, 'index']);
     Route::post('/user', [UserController::class, 'store']);
