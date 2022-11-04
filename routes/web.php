@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,18 @@ Route::get('/admin/login', function () {
     return view('admin.login');
 });
 
+Route::get('/login', function () {
+    return view('user.auth.login');
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin', 'auth']], function () {
 
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
+    Route::get('/user/fetch', [UserController::class, 'fetchDataTable'])->name('user.fetch');
+    Route::get('/user', [UserController::class, 'index']);
+    Route::post('/user', [UserController::class, 'store']);
+    Route::get('/user/{id}/edit', [UserController::class, 'edit']);
+    Route::patch('/user/{id}/edit', [UserController::class, 'update']);
 });
