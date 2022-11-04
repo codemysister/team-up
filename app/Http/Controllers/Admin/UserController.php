@@ -43,7 +43,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'email_verified_at' => Carbon::now(),
         ]);
-        return view('admin.users');
+        return response()->json(['status' => 'success']);
     }
 
     public function edit($id)
@@ -54,11 +54,18 @@ class UserController extends Controller
 
     public function update($id, Request $request)
     {
+
         $user = User::find($id);
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
         ]);
-        return redirect()->intended('/admin/user');
+        return response()->json(['status' => 'success']);
+    }
+
+    public function destroy($id)
+    {
+        User::find($id)->delete();
+        return response()->json(['status' => 'success']);
     }
 }
