@@ -30,6 +30,10 @@ Route::get('/register', function () {
     return view('user.auth.register');
 });
 
+Route::get('/role', function () {
+    return view('user.role');
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin', 'auth']], function () {
 
     Route::get('/dashboard', function () {
