@@ -28,7 +28,7 @@
       <img src="{{asset('img/logo.png')}}" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo">
   </a>
   <div class="flex md:order-2">
-      <button type="button" class="text-white bg-[#F2994A] hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 ">Login</button>
+      <button type="button" class="text-white bg-[#F2994A] hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 "><a href="{{url('/login')}}">Login</a></button>
       <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-sticky" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
         <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
@@ -69,13 +69,10 @@
         </div>
   
         <img src="{{asset('img/test.png')}}" width="350px" class="mx-auto mt-5  sm:hidden" alt="">
-  
-        
-
     </div>
 
     <div class="">
-      <img src="{{asset('img/heroimg.png')}}" width="310px" class="hidden sm:block md:hidden absolute -right-2 top-9 " alt="">
+      <img src="{{asset('img/heroimg.png')}}" width="330px" class="hidden sm:block md:hidden absolute -right-2 top-9 " alt="">
     </div>
 
     <div class="">
@@ -88,7 +85,7 @@
 
 
     <div class="">
-      <img src="{{asset('img/heroimg.png')}}" width="500px" class="hidden xl:block absolute -right-2 top-9 " alt="">
+      <img src="{{asset('img/heroimg.png')}}" width="530px" class="hidden xl:block absolute -right-2 top-9 " alt="">
     </div>
       
   </div>
@@ -499,12 +496,12 @@
       <div class="">
         <img src="{{asset('img/profile.png')}}"  class="mx-auto sm:hidden " alt="">
         <img src="{{asset('img/profile.png')}}" width="450px"  class="hidden sm:block lg:hidden md:ml-6 " alt="">
-        <img src="{{asset('img/profile.png')}}" width="500px"  class="hidden  lg:block  md:ml-6 lg:ml-20 " alt="">
+        <img src="{{asset('img/profile.png')}}" width="900px"  class="hidden   lg:block  md:ml-6 lg:ml-20 " alt="">
       </div>
-      <div class="sm:w-96   sm:-ml-20 md:-ml-10 lg:ml-5  sm:mt-10">
+      <div class="sm:w-96   sm:-ml-20 md:-ml-10 lg:pl-32 lg:w-full   sm:mt-10">
         <h5 class="px-4 font-poppins text-[#F2994A] text-xl sm:text-lg ">Create Profile</h5>
         <h3 class="px-4 text-2xl sm:text-xl md:text-3xl lg:text-4xl font-poppins font-bold lg:w-full ">Join Your Dream Team</h3>
-        <p class="px-4 text-center lg:text-[21] sm:text-left text-base font-poppins">create your account as a member and choose your favorite team, get a project with your team, and grow with the team</p>
+        <p class="px-4 text-center lg:w-[490px] lg:text-[21] sm:text-left text-base font-poppins">create your account as a member and choose your favorite team, get a project with your team, and grow with the team</p>
         <p class="px-auto hidden sm:block sm:px-4 md:px-5 font-poppins  font-light "> <i class='bx bxs-badge-check' ></i>  Join team</p>
         <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light"> <i class='bx bxs-badge-check' ></i>  Find a job</p>
         <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light"> <i class='bx bxs-badge-check' ></i>  Send a message to team members via group chat</p>
