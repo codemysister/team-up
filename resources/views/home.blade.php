@@ -55,8 +55,8 @@
 </nav>
 
 {{-- Home --}}
-<section id="home" class="">
-  <div class="bg-[#FFF5EC] sm:bg-red-200 md:bg-yellow-200  lg:bg-lime-400 xl:bg-green-300 overflow-x-hidden sm:flex sm:relative sm:overflow-y-hidden">
+<section id="home" class=""> 
+  <div class="bg-[#FFF5EC]  overflow-x-hidden sm:flex sm:relative sm:overflow-y-hidden">
     <div class="sm:container sm:mx-auto">
       <h1 class="px-3 sm:px-4   pt-24 sm:pt-28 xl:pt-32 sm:w-[60%]   text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:text-[40px] font-bold font-poppins text-center sm:text-left">Be a Leader or <span class="text-orange-400">Member</span> </h1>
         <p class="px-14  sm:px-4  sm:pt-2 pt-1 text-sm font-poppins text-center sm:text-left w-full sm:w-80 md:w-96 md:text-base ">Join your dream team and gain experience or invent your dream team</p>
