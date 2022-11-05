@@ -5,7 +5,7 @@
     
     
     <!-- Modal toggle -->
-    <button class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 my-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="authentication-modal">
+    <button class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 my-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="authentication-modal" onclick="add()">
         Add User
     </button>
     
@@ -22,7 +22,7 @@
                     <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white" id="judul-modal" >Tambah Data</h3>
                     <form class="space-y-6" action="{{url('/admin/user')}}" method="POST" id="form-modal">
                         @csrf
-
+                        
                         @method('PATCH')
                         <input type="hidden" name="id" value="" id="id">
                         <div>
@@ -54,7 +54,9 @@
                             @enderror
                         </div>
                         
-                        <button id="btn-submit-modal" type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add</button>
+                        <button id="btn-submit-add" type="button" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="store()">Add</button>
+                        
+                        <button id="btn-submit-edit" type="button" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="update()">Edit</button>
                         
                     </form>
                 </div>
@@ -70,24 +72,117 @@
 
 @push('script')
 
-<script>
+<script>    
+    
+    function store(){
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let password_confirmation = document.getElementById('password_confirmation').value;
+        axios.post(`/admin/user/`, {name:name, email:email, password: password, password_confirmation:password_confirmation})
+        .then((res)=>{
+            if(res.data.status == 'success'){
+                Swal.fire({
+                    icon: 'success',
+                    title: "Success!",
+                    text: `Add User Complete`,
+                    type: "success",
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+                window.location.href = "/admin/user";
+            }
+            
+        })
+    }
+    
+    function add(){
+        let password = document.querySelector('.password').style.display = 'block';
+        let password_confirmation = document.querySelector('.password_confirmation').style.display = 'block';
+        let btnSubmitModal = document.getElementById('btn-submit-edit').style.display = 'none';
+    }
+    
     function edit(id){
+        let targetEl = document.getElementById('authentication-modal');
+        const modal = new Modal(targetEl);
         axios.get(`/admin/user/${id}/edit`)
         .then((res)=>{
             console.log(res.data);
             let id = document.getElementById('id').value = res.data.user.id;
             let name = document.getElementById('name').value = res.data.user.name;
             let email = document.getElementById('email').value = res.data.user.email;
-            let password = document.querySelector('.password').style.display = 'none';
-            let password_confirmation = document.querySelector('.password_confirmation').style.display = 'none';
-            let btnModal = document.getElementById('judul-modal').innerText = 'Edit Data';
-            let btnSubmitModal = document.getElementById('btn-submit-modal').innerText = 'Edit';
-            let formModal = document.getElementById('form-modal').setAttribute('action', `http://127.0.0.1:8000/admin/user/${res.data.user.id}/edit`);
-            
-            let targetEl = document.getElementById('authentication-modal');
-            const modal = new Modal(targetEl);
-            modal.show();
+            // let btnSubmitModal = document.getElementById('btn-submit-modal').setAttribute('onclick',update(id, name, email));
         })
+        let password = document.querySelector('.password').style.display = 'none';
+        let password_confirmation = document.querySelector('.password_confirmation').style.display = 'none';
+        let btnSubmitAdd = document.getElementById('btn-submit-add').style.display = 'none';
+        let btnSubmitEdit = document.getElementById('btn-submit-edit').style.display = 'block';
+        modal.show();
+        
+    }
+    
+    function update(){
+        let id = document.getElementById('id').value;
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        axios.patch(`/admin/user/${id}/edit`, {id:id, name:name, email:email})
+        .then((res)=>{
+            if(res.data.status == 'success'){
+                Swal.fire({
+                    icon: 'success',
+                    title: "Success!",
+                    text: `Edit User Complete`,
+                    type: "success",
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+                window.location.href = "/admin/user";
+            }
+        })
+    }
+    
+    function destroy(id){
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`/admin/user/${id}/delete`).then((res)=>{
+                    console.log(res.data.status)
+                    if(res.data.status == 'success'){
+                        Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                        )
+
+                        window.location.href = "/admin/user";
+                    }
+                   
+                })
+                
+            }
+        })
+    }
+    
+    
+    
+    function openModal(){
+        console.log('oke')
+        let targetEl = document.getElementById('authentication-modal');
+        const modal = new Modal(targetEl);
+        modal.toggle();
+        
+        let el = document.querySelectorAll('[modal-backdrop]');
+        el.forEach((e)=>{
+            e.style.display = 'none'
+        })
+        
     }
     
     function closeModal(){
@@ -95,17 +190,15 @@
         let targetEl = document.getElementById('authentication-modal');
         const modal = new Modal(targetEl);
         modal.toggle();
-       
+        
         let el = document.querySelectorAll('[modal-backdrop]');
         el.forEach((e)=>{
             e.style.display = 'none'
         })
-
+        
     }
     
     window.onload = function(){
-        
-        
         
         let Grid = window.Grid;
         const TABLE_CLIENTS = '[js-hook-table-client]'
@@ -135,7 +228,7 @@
                     width: '100%',
                     // Here we inject our route edit
                     // formatter: (_, row) => 
-                    formatter: (cell, row) => html(`<button class='py-2 mb-4 px-4 border rounded-md text-white bg-blue-600' onclick='edit(${row.cells[0].data})'>Edit</button>  <button class='py-2 mb-4 px-4 border rounded-md text-white bg-red-600'>Delete</button>`)
+                    formatter: (cell, row) => html(`<button class='py-2 mb-4 px-4 border rounded-md text-white bg-blue-600' onclick='edit(${row.cells[0].data})'>Edit</button>  <button onclick="destroy(${row.cells[0].data})" class='py-2 mb-4 px-4 border rounded-md text-white bg-red-600'>Delete</button>`)
                     //   h('button', {
                         //         className: 'py-2 mb-4 px-4 border rounded-md text-white bg-blue-600',
                         //         onClick: () => alert(`Editing "${row.cells[0].data}" "${row.cells[1].data}"`)
@@ -174,16 +267,11 @@
                     
                     
                 }
-                
-                
-                // let btn = document.createElement('button');
-                // btn.innerText = 'tambah';
-                // btn.className = 'py-2 mb-4 px-4 text-red bg-blue-600';
-                // console.log(btn)
-                // let gridHead = document.querySelector('.gridjs-head');
-                // gridHead.append(btn)
-                
             }
+            
+            
+            
+            
             
             
         </script>

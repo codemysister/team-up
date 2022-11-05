@@ -42,4 +42,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin', 'auth']], func
     Route::post('/user', [UserController::class, 'store']);
     Route::get('/user/{id}/edit', [UserController::class, 'edit']);
     Route::patch('/user/{id}/edit', [UserController::class, 'update']);
+    Route::delete('/user/{id}/delete', [UserController::class, 'destroy']);
 });
