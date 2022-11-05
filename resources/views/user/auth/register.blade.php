@@ -6,58 +6,73 @@
   @vite('resources/css/app.css')
 </head>
 <body>
-  <div class="container mt-7 h-screen">
-    <h1 class="font-bold font-poppins text-3xl text-center">Create New Account</h1>
-    
-<form action="">
-  <div class="mb-6 mt-10">
-    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Name</label>
-    <input type="text" id="name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Enter Your Full Name" required="">
-  </div>
-  <div class="mb-6">
-    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Your email</label>
-    <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="name@teamup.gmail.com" required="">
-  </div>
-  <div class="mb-6">
-    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Your password</label>
-    <input type="password" id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="">
-  </div>
-  <div class="mb-6">
-    <label for="repeat-password" class="block mb-2 text-sm font-medium text-gray-900 ">Repeat password</label>
-    <input type="password" id="repeat-password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="">
-  </div>
-  <div class="flex items-start mb-6">
-    <div class="flex items-center h-5">
-      <input id="terms" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 " required="">
+  <section class="flex flex-col md:flex-row h-screen items-center">
+    <div class="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:my-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center">
+        <div class="w-full h-100"> 
+          <div>
+          <img src="{{asset('img/logo.png')}}" width="" class="mr-3 mt-10 sm:h-9" alt="Flowbite Logo">
+          </div>
+          
+            <h1 class="text-4xl mt-3 font-bold">
+              Register 
+            </h1>
+            <p class="font-poppins">Start your website in seconds. Don’t have an account? <span class="text-blue-600">Sign up.</span> </p>
+            <form action="" class="mt-6" method="post">
+            <div>
+                    <label for="name" class="block text-gray-700">Name</label>
+                    <input type="text" name="" id="naem" placeholder="Enter your Name" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500 focus:bg-white focus:outline-none" autofocus autocomplete required> 
+
+                </div>
+                <div class="mt-4">
+                    <label for="" class="block text-gray-700">Email Adress</label>
+                    <input type="email" name="" id="email" placeholder="Enter your email address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500 focus:bg-white focus:outline-none" autofocus autocomplete required> 
+
+                </div>
+
+                <div class="mt-4">
+                  
+                    <label for="" class="block text-gray-700">Password</label>
+                    <input type="password" name="" id="email" placeholder="Enter your password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500 focus:bg-white focus:outline-none" autofocus autocomplete required> 
+                </div>
+                <div class="mt-4">
+                  
+                  <label for="" class="block text-gray-700">Password Confirmation</label>
+                  <input type="password" name="" id="email" placeholder="Enter your password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-purple-500 focus:bg-white focus:outline-none" autofocus autocomplete required> 
+              </div>
+
+                <div class="flex items-start mt-2">
+                  <div class="flex items-start">
+                      <div class="flex items-center h-5">
+                          <input id="remember" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300    " required>
+                      </div>
+                      <label for="remember" class="ml-2 text-sm font-medium text-gray-900 ">Remember me</label>
+                  </div>
+                  <a href="#" class="ml-auto text-sm text-blue-700 hover:underline ">Lost Password?</a>
+              </div>
+
+                <button type="submit" class="w-full block bg-purple-500 hover:bg-purple-400 focus:bg-purple-400 text-white font-semibold rounded-lg px-4 py-3 mt-6">
+                    Log In
+                </button>
+            </form>
+
+            <hr class="my-6 border-gray-300 w-full">
+
+            <button type="button" class="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
+                <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" x="0px" y="0px"
+                        viewBox="0 0 48 48"
+                        style=" fill:#000000;"><path fill="#f5bc00" d="M43.6,20.1H42V20H24v8h11.3c-1.6,4.7-6.1,8-11.3,8c-6.6,0-12-5.4-12-12s5.4-12,12-12c3.1,0,5.8,1.2,8,3l5.7-5.7	C34,6.1,29.3,4,24,4C13,4,4,13,4,24s9,20,20,20s20-9,20-20C44,22.7,43.9,21.4,43.6,20.1z"></path><path fill="#6c19ff" d="M43.6,20.1L43.6,20.1L42,20H24v8h11.3c-0.8,2.2-2.2,4.2-4.1,5.6c0,0,0,0,0,0l6.2,5.2C37,39.2,44,34,44,24	C44,22.7,43.9,21.4,43.6,20.1z"></path><path fill="#3ddab4" d="M24,44c5.2,0,9.9-2,13.4-5.2l-6.2-5.2c-2,1.5-4.5,2.4-7.2,2.4c-5.2,0-9.6-3.3-11.3-7.9l-6.5,5	C9.5,39.6,16.2,44,24,44z"></path><path fill="#f55376" d="M6.3,14.7l6.6,4.8C14.7,15.1,19,12,24,12c3.1,0,5.8,1.2,8,3l5.7-5.7C34,6.1,29.3,4,24,4	C16.3,4,9.7,8.3,6.3,14.7z"></path><path fill="#2100c4" d="M26.6,35.7l6.8,6c1.5-0.8,2.9-1.8,4.1-2.9l-6.2-5.2C29.9,34.6,28.3,35.3,26.6,35.7z"></path><path fill="#eb0000" d="M9.2,10.6c-1.1,1.2-2.1,2.6-2.9,4.1l3.9,2.9l2.6,1.9c0.6-1.6,1.6-3,2.8-4.1L9.2,10.6z"></path>
+                    </svg>
+                    <span class="ml-4">Log in with Google</span>
+                </div>
+            </button>
+        </div>
     </div>
-    <label for="terms" class="ml-2 text-sm font-medium text-gray-900 ">I agree with the <a href="#" class="text-blue-600 hover:underline ">terms and conditions</a></label>
-  </div>
-  <div class="flex mx-auto">
-    <button type="submit" class="text-white mx-auto bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Register new account</button>
-  </div>
-  
-  <div class="flex mt-5">
-    <div>
-      <button type="button" class="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2">
-        <svg class="mr-2 -ml-1 w-4 h-4" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path></svg>
-        Sign in with Google
-      </button>
+
+    <div class="bg-purple-600 hidden lg:block w-full md:w1/2 xl:w-2/3 h-screen">
+        <img src="https://images.unsplash.com/photo-1633536726481-465c3676851d" alt="" class="w-full h-full object-cover object-center">
     </div>
-    <div>
-      <button type="button" class="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
-        <svg class="mr-2 -ml-1 w-4 h-4" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path></svg>
-        Sign in with Google
-      </button>
-    </div>
-    
-
-
-
-  </div>
- 
-</form>
-
-  </div>
+</section>
      
 
 </body>
