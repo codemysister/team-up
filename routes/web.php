@@ -32,7 +32,8 @@ Route::get('/register', function () {
 
 Route::get('/role', function () {
     return view('user.role');
-});
+})->middleware('verified');
+
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin', 'auth']], function () {
 

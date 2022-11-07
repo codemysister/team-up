@@ -10,7 +10,7 @@ class LoginResponse implements LoginResponseContract
 
     public function toResponse($request)
     {
-        $redirect = '/';
+        $redirect = '/role';
         if (Auth::user()->hasRole('admin')) {
             $redirect = 'admin/dashboard/';
         }

@@ -50,6 +50,10 @@ class FortifyServiceProvider extends ServiceProvider
             return view('user.auth.login');
         });
 
+        Fortify::verifyEmailView(function () {
+            return view('user.auth.verifikasi');
+        });
+
         // register new LoginResponse
         $this->app->singleton(
             \Laravel\Fortify\Contracts\LoginResponse::class,
