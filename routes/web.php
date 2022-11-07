@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,9 +31,14 @@ Route::get('/register', function () {
     return view('user.auth.register');
 });
 
-Route::get('/role', function () {
-    return view('user.role');
-})->middleware('verified');
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    Route::get('/role', [RoleController::class, 'index']);
+    Route::post('/choose-role', [RoleController::class, 'chooseRole']);
+});
+
+Route::get('/team-list', function () {
+    return view('user.team-list');
+});
 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin', 'auth']], function () {

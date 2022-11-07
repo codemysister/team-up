@@ -55,7 +55,11 @@
                   <span class="text-base font-normal leading-tight text-gray-500">24×7 phone & email support</span>
               </li>
           </ul>
-          <button type="button" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center text-center">Choose plan</button>
+          <form action="{{url('/choose-role')}}" method="POST">
+            @csrf
+            <input type="hidden" name="role" id="role">
+            <button type="submit" onclick="setRoles('leader')" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center text-center">Choose plan</button>
+          
         </div>
       </div>
     </div>
@@ -102,11 +106,18 @@
                   <span class="text-base font-normal leading-tight text-gray-500">24×7 phone & email support</span>
               </li>
           </ul>
-          <button type="button" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center text-center">Choose plan</button>
+          
+            <button type="submit" onclick="setRoles('member')" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center text-center">Choose plan</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
 
+  <script>
+   function setRoles(role){
+      document.getElementById('role').value = role;
+    }
+  </script>
 </body>
 </html>
