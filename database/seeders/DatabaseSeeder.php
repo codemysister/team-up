@@ -25,26 +25,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // daftar role
-        Role::create(['name' => 'admin']);
-        Role::create(['name' => 'leader']);
-        Role::create(['name' => 'member']);
-
-        //permission dashboard
-        Permission::create(['name' => 'dashboard.index', 'guard_name' => 'web']);
-
-        //permission project
-        Permission::create(['name' => 'team.index', 'guard_name' => 'web']);
-        Permission::create(['name' => 'team.create', 'guard_name' => 'web']);
-        Permission::create(['name' => 'team.edit', 'guard_name' => 'web']);
-        Permission::create(['name' => 'team.delete', 'guard_name' => 'web']);
-
-
-        //permission users
-        Permission::create(['name' => 'role_team.index', 'guard_name' => 'web']);
-        Permission::create(['name' => 'role_team.create', 'guard_name' => 'web']);
-        Permission::create(['name' => 'role_team.edit', 'guard_name' => 'web']);
-        Permission::create(['name' => 'role_team.delete', 'guard_name' => 'web']);
+        $this->call(RoleSeeder::class);
+        $this->call(PermissionSeeder::class);
 
         //create user
         $user = User::create([
@@ -64,5 +46,15 @@ class DatabaseSeeder extends Seeder
 
         //assign role to user
         $user->assignRole($role);
+
+        //get role leader
+        $role = Role::find(2);
+
+        $role->syncPermissions([
+            'team.index',
+            'team.create',
+            'team.edit',
+            'team.delete',
+        ]);
     }
 }
