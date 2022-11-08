@@ -40,6 +40,10 @@ Route::get('/team-list', function () {
     return view('user.team-list');
 });
 
+Route::get('/verify', function () {
+    return view('user.auth.verifikasi');
+});
+
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin', 'auth']], function () {
 
