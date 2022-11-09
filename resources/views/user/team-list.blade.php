@@ -88,31 +88,13 @@
               <span class="sr-only">Search</span>
           </button>
       </form>
-        <div class="flex items-center space-x-4">
-          <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer" src="https://imagez.tmz.com/image/f7/1by1/2021/12/14/f7703994b69d48ca802df55729a2325c_xl.jpg" alt="User dropdown">
-
-          <!-- Dropdown menu -->
-          <div id="userDropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-              <div class="py-3 px-4 text-sm text-gray-900 dark:text-white">
-                <div>Bonnie Green</div>
-                <div class="font-medium truncate">name@flowbite.com</div>
-              </div>
-              <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
-                <li>
-                  <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                </li>
-                <li>
-                  <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                </li>
-                <li>
-                  <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                </li>
-              </ul>
-              <div class="py-1">
-                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-              </div>
-          </div>
+      <div class="flex items-center space-x-4">
+        <img class="w-10 h-10 rounded-full" src="https://imagez.tmz.com/image/f7/1by1/2021/12/14/f7703994b69d48ca802df55729a2325c_xl.jpg" alt="">
+        <div class="font-medium dark:text-white">
+            <div>Jese Leos</div>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
         </div>
+    </div>
       </nav>
       <div class="mx-6">
         <h1 class="my-6 text-3xl">Team List</h1>
