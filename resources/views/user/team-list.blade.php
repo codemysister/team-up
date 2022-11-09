@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <h1>Team List</h1>
+   
   
 </body>
 </html>
