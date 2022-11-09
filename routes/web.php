@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\RoleController;
+use App\Mail\TestMail;
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,12 +39,27 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/choose-role', [RoleController::class, 'chooseRole']);
 });
 
+Route::get('/my-team', function () {
+    return view('user.my-team');
+});
+
 Route::get('/team-list', function () {
     return view('user.team-list');
 });
 
+Route::get('/team-detail', function () {
+    return view('user.team-detail');
+});
+
 Route::get('/verify', function () {
     return view('user.auth.verifikasi');
+});
+
+Route::get('/test-mail', function () {
+    $users = User::all();
+    foreach ($users as $user) {
+        Mail::to($user)->send(new TestMail());
+    }
 });
 
 
