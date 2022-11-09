@@ -491,23 +491,24 @@
 
 
 {{-- fiture 1 --}}
-<section id="create-profile" class="bg-[#FFF5EC] pb-10" >
+<section id="create-profile" class="bg-[#FFF5EC] pb-10 overflow-hidden" >
   <div class=" bg-[#fcfcfc] sm:bg-[#FFF5EC] w-[360px] sm:w-full  mx-auto rounded-3xl sm:rounded-none shadow-2xl sm:shadow-none mb-10 ">
     <div class="sm:flex ">
       <div class="">
         <img src="{{asset('img/profile.png')}}"  class="mx-auto sm:hidden " alt="">
         <img src="{{asset('img/profile.png')}}" width="450px"  class="hidden sm:block lg:hidden md:ml-6 " alt="">
-        <img src="{{asset('img/profile.png')}}" width="900px"  class="hidden   lg:block  md:ml-6 lg:ml-20 " alt="">
+        <img src="{{asset('img/profile.png')}}" width="900px"  class="hidden   lg:block xl:hidden  md:ml-6 lg:ml-20 " alt="">
+        <img src="{{asset('img/profile.png')}}" width="900px"  class="hidden   lg:hidden xl:block  md:ml-6 lg:ml-20 xl:ml-32 " alt="">
       </div>
-      <div class="sm:w-96   sm:-ml-20 md:-ml-10 lg:pl-32 lg:w-full   sm:mt-10">
-        <h5 class="px-4 font-poppins text-[#F2994A] text-xl sm:text-lg ">Create Profile</h5>
-        <h3 class="px-4 text-2xl sm:text-xl md:text-3xl lg:text-4xl font-poppins font-bold lg:w-full ">Join Your Dream Team</h3>
-        <p class="px-4 text-center lg:w-[490px] lg:text-[21] sm:text-left text-base font-poppins">create your account as a member and choose your favorite team, get a project with your team, and grow with the team</p>
-        <p class="px-auto hidden sm:block sm:px-4 md:px-5 font-poppins  font-light "> <i class='bx bxs-badge-check' ></i>  Join team</p>
-        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light"> <i class='bx bxs-badge-check' ></i>  Find a job</p>
-        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light"> <i class='bx bxs-badge-check' ></i>  Send a message to team members via group chat</p>
+      <div class="sm:w-96   sm:-ml-20 md:-ml-10 lg:pl-32 lg:w-full   sm:mt-10 xl:mt-36 ">
+        <h5 class="px-4 font-poppins text-[#F2994A] text-xl sm:text-lg xl:ml-20">Create Profile</h5>
+        <h3 class="px-4 text-2xl sm:text-xl md:text-3xl lg:text-4xl font-poppins font-bold lg:w-full xl:ml-20">Join Your Dream Team</h3>
+        <p class="px-4 text-center lg:w-[490px] lg:text-[21] sm:text-left text-base font-poppins xl:ml-20">create your account as a member and choose your favorite team, get a project with your team, and grow with the team</p>
+        <p class="px-auto hidden sm:block sm:px-4 md:px-5 font-poppins  font-light xl:ml-20"> <i class='bx bxs-badge-check' ></i>  Join team</p>
+        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light xl:ml-20"> <i class='bx bxs-badge-check' ></i>  Find a job</p>
+        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light xl:ml-20"> <i class='bx bxs-badge-check' ></i>  Send a message to team members via group chat</p>
         
-        <button type="button" class="text-white mx-[30%] sm:mx-4  mt-2  bg-[#F2994A] hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-6 ">Create Account</button>
+        <button type="button" class="text-white xl:ml-20 mx-[30%] sm:mx-4  mt-2  bg-[#F2994A] hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-6 ">Create Account</button>
       </div>
     </div>
   </div>
@@ -521,25 +522,29 @@
       <div class="sm:w-96 lg:w-full sm:h-auto  ">
         <img src="{{asset('img/uploadcv.png')}}" class="sm:hidden lg:hidden" alt="">
 
-        <h5 class="px-4 sm:px-4 md:px-2 lg:px-4  font-poppins text-[#F2994A] text-xl sm:text-lg ">Leader Team</h5>
-        <h3 class="px-4 sm:px-4 md:px-2 lg:px-4 text-2xl sm:text-xl  md:text-3xl lg:text-4xl font-poppins  font-bold md:w-full">Invent Your Dream Team</h3>
-        <p class="px-4 sm:px-4 md:px-2 lg:px-4 sm:w-[329px] lg:w-[500px] text-center sm:text-left text-base font-poppins">create your account as leader and create your dream team, manage team, get project with your team and grow with team:</p>
-        <p class="px-auto hidden sm:block sm:px-4 md:px-5 font-poppins  font-light "> <i class='bx bxs-badge-check' ></i>  Build your team</p>
-        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light"> <i class='bx bxs-badge-check' ></i>  Manage team</p>
-        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light"> <i class='bx bxs-badge-check' ></i>  Hire members</p>
-        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light"> <i class='bx bxs-badge-check' ></i>  Find a job</p>
-        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light"> <i class='bx bxs-badge-check' ></i>  Send a message to team members via group chat
+        <h5 class="px-4 sm:px-4 md:px-2 lg:px-4 xl:px-28 font-poppins text-[#F2994A] text-xl sm:text-lg ">Leader Team</h5>
+        <h3 class="px-4 sm:px-4 md:px-2 lg:px-4  xl:px-28 text-2xl sm:text-xl  md:text-3xl lg:text-4xl font-poppins  font-bold md:w-full">Invent Your Dream Team</h3>
+        <p class="px-4 sm:px-4 md:px-2 lg:px-4  xl:px-28 sm:w-[329px] lg:w-[500px] xl:w-[700px] text-center sm:text-left text-base font-poppins">create your account as leader and create your dream team, manage team, get project with your team and grow with team:</p>
+        <p class="px-auto hidden sm:block sm:px-4 md:px-5  xl:px-28 font-poppins  font-light xl:text-lg"> <i class='bx bxs-badge-check' ></i>  Build your team</p>
+        <p class="px-auto  hidden sm:block sm:px-4 md:px-5  xl:px-28 font-poppins  font-light xl:text-lg"> <i class='bx bxs-badge-check' ></i>  Manage team</p>
+        <p class="px-auto  hidden sm:block sm:px-4 md:px-5  xl:px-28 font-poppins  font-light xl:text-lg"> <i class='bx bxs-badge-check' ></i>  Hire members</p>
+        <p class="px-auto  hidden sm:block sm:px-4 md:px-5  xl:px-28 font-poppins  font-light xl:text-lg"> <i class='bx bxs-badge-check' ></i>  Find a job</p>
+        <p class="px-auto  hidden sm:block sm:px-4 md:px-5  xl:px-28 font-poppins  font-light xl:text-lg"> <i class='bx bxs-badge-check' ></i>  Send a message to team members via group chat
         </p>
 
         
-        <button type="button" class="text-white mx-[30%] sm:mx-4 md:px-2 mt-2 lg:mb-32  bg-[#F2994A] hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-6 ">Create Account</button>
+        <button type="button" class="text-white mx-[30%] sm:mx-4 md:px-2 mt-2 lg:mb-32  bg-[#F2994A] hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-6 xl:ml-28 ">Create Account</button>
       </div>
       <div class="">
         <img src="{{asset('img/uploadcv.png')}}" width="430px" class="hidden sm:block lg:hidden sm:absolute sm:-right-9  sm:-top-12" alt="">
       </div>
 
       <div class="">
-        <img src="{{asset('img/uploadcv.png')}}" width="500px" class="hidden  lg:block sm:absolute sm:-right-9  sm:-top-12" alt="">
+        <img src="{{asset('img/uploadcv.png')}}" width="500px" class="hidden  lg:block xl:hidden sm:absolute sm:-right-9  sm:-top-12" alt="">
+      </div>
+
+      <div class="">
+        <img src="{{asset('img/uploadcv.png')}}" width="500px" class="hidden  lg:hidden xl:block sm:absolute sm:-right-9 xl:right-24  sm:-top-12 " alt="">
       </div>
     </div>
   </div>
