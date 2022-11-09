@@ -3,15 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     @vite('resources/css/app.css')
 </head>
-<body>
+<body class="font-poppins">
 
     <section class="flex flex-col md:flex-row h-screen items-center">
         <div class="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:my-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center">
             <div class="w-full h-100"> 
                 <img src="{{asset('img/logo.png')}}" width="" class="mr-3 mt-10 sm:h-9" alt="Flowbite Logo">
-                <h1 class="text-4xl mt-3 font-bold">
+                <h1 class="text-4xl mt-3 font-bold font-poppins">
                     Welcome back
                 </h1>
                 <p class="font-poppins">Start your website in seconds. Don’t have an account? <span class="text-blue-600"><a href="{{url('/register')}}" class="text-decoration-none">Sign up.</a></span> </p>

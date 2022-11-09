@@ -3,9 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     @vite('resources/css/app.css')
 </head>
-<body>
+<body class="font-poppins">
     <section class="flex flex-col md:flex-row h-screen items-center">
         <div class="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:my-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center">
             <div class="w-full h-100"> 
@@ -14,7 +15,7 @@
                     Register 
                 </h1>
                 
-                <p class="font-poppins">Already have an account? <span class="text-blue-600"> <a href="{{url('/login')}}" class="text-decoration-none">Login.</a></span> </p>
+                <p class="font-poppins mt-1">Already have an account? <span class="text-blue-600"> <a href="{{url('/login')}}" class="text-decoration-none">Login.</a></span> </p>
                 
                 <form action="{{url('/register')}}" class="mt-3" method="post">
                     @csrf

@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   @vite('resources/css/app.css')
 </head>
 <body class="bg-[#FFF5EC]">
@@ -11,9 +12,7 @@
     <div class="container mx-auto -mt-16 sm:-mt-28   md:text-2xl  lg:text-2xl">
         
         <img class="w-full h-full mt-[20%] sm:mt-0 md:w-[600px] md:mx-auto lg:w-[600px] lg:-mt-20 lg:mx-auto" src="{{asset('img/email-verification.png')}}">
-
         <h1 class="font-poppins text-3xl px-5 text-center -mt-16 mb-2 font-bold md:text-5xl">Confirm your email </h1>
-
         <h1 class="font-base font-poppins  text-center px-6 mx-auto -mt-13 text-xl md:text-2xl">We have sent a verification email to <span class="text-gray-600 font-poppins font-bold text">deva@gmail.com</span>, please check your email and complete the verification process to proceed to the next step
         </h1>
 {{-- 
