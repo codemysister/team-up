@@ -31,6 +31,7 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <!-- Main Styling -->
     <link href="{{asset('assets/css/soft-ui-dashboard-tailwind.css?v=1.0.4')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
