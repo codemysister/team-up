@@ -67,7 +67,7 @@
             <div class="">
               <img class="w-sm" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29kZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="" />
               <div class="p-2 relative">
-                <p class="text-lg mt-6 font-semibold">Web Developer</p>
+                <p class="text-lg mt-6 font-semibold">Nama Team</p>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, maiores!</p>
                 <div class="flex -space-x-4 justify-between mt-1">
                  <div>
