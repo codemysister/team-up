@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="mx-6">
-  <h1 class="my-6 text-3xl">Team List</h1>
+  <h1 class="my-6 text-3xl ">Team List</h1>
   <div class="md:flex  space-y-3 md:space-y-0 md:space-x-4 mt-6">
     <div class="h-90 bg-gradient-to-r rounded-md from-indigo-600 to-purple-600 p-10">
       <p class="text-3xl font-thin text-indigo-50 cursor-pointer">How to do Basic Jumping and how to
