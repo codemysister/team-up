@@ -47,13 +47,15 @@ Route::get('/team-list', function () {
     return view('user.team-list');
 });
 
-Route::get('/team-detail', function () {
-    return view('user.team-detail');
+
+Route::get('/myteam-detail', function () {
+    return view('user.myteam-detail');
 });
 
 Route::get('/verify', function () {
     return view('user.auth.verifikasi');
 });
+Route::get('/roles', [RoleController::class, 'index']);
 
 Route::get('/test-mail', function () {
     $users = User::all();
