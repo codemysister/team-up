@@ -59,6 +59,16 @@ Route::get('/myteam-detail', function () {
 Route::get('/verify', function () {
     return view('user.auth.verifikasi');
 });
+
+Route::get('/profile', function () {
+    return view('user.profile');
+});
+
+Route::get('/setting', function () {
+    return view('user.setting');
+});
+
+
 Route::get('/roles', [RoleController::class, 'index']);
 
 Route::get('/test-mail', function () {

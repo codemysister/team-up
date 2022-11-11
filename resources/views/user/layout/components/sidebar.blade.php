@@ -40,7 +40,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
-              <span class="font-semibold"><a href="{{url('/my-team')}}">Profile</a></span>
+              <span class="font-semibold"><a href="{{url('/profile')}}">Profile</a></span>
             </li>
             <li class="flex space-x-2 mt-10 cursor-pointer hover:text-[#EC5252] duration-150">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -48,7 +48,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
               </svg>
-              <span class="font-semibold">Setting</span>
+              <span class="font-semibold"><a href="{{url('/setting')}}">Setting</a></span>
             </li>
             <button class="w-full mt-10 bg-[#EC5252] rounded-full py-1.5 text-white">Logout</button>
           </ul>
