@@ -47,6 +47,9 @@ Route::get('/team-list', function () {
     return view('user.team-list');
 });
 
+Route::get('/team-detail', function () {
+    return view('user.team-detail');
+});
 
 Route::get('/myteam-detail', function () {
     return view('user.myteam-detail');
