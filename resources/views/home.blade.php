@@ -1,5 +1,5 @@
-<!doctype html>
-<html>
+<!doctype html >
+<html  class="scroll-smooth">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,13 +38,16 @@
   <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
     <ul class="flex flex-col p-4 mt-4 md:bg-[#FFF5EC]  rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  ">
       <li>
-        <a href="#" class="block  py-2 pr-4 pl-3 lg:text-base text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 " aria-current="page">Home</a>
+        <a href="#home" class="block  py-2 pr-4 pl-3 lg:text-base text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 " aria-current="page">Home</a>
       </li>
       <li>
-        <a href="#" class="block py-2 pr-4 pl-3 lg:text-base text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">About</a>
+        <a href="#kategori" class="block py-2 pr-4 pl-3 lg:text-base text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Categori</a>
       </li>
       <li>
-        <a href="#" class="block py-2 pr-4 pl-3 lg:text-base text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Services</a>
+        <a href="#create-profile" class="block py-2 pr-4 pl-3 lg:text-base text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Fitur</a>
+      </li>
+      <li>
+        <a href="#service" class="block py-2 pr-4 pl-3 lg:text-base text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Service</a>
       </li>
       <li>
         <a href="{{url('/login')}}" class="block py-2 pr-4 pl-3 lg:text-base text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Team List</a>
@@ -96,7 +99,7 @@
 
 
 {{-- carousel companies --}}
-<section class="z-0">
+<section id="" class="z-0">
   <div class="pt-10  ">
     <h5 class=" px-20  text-center font-light font-poppins lg:text-xl text-bold">Join Most Well Known <span class="text-[#F2994A] ">Companies</span>  Around The World</h5>
   </div>
@@ -556,7 +559,7 @@
 
 
 
-<div class="w-full bg-white rounded-lg border shadow-md ">
+<div id="service" class="w-full bg-white rounded-lg border shadow-md ">
   <div class="sm:hidden">
       <label for="tabs" class="sr-only">Select tab</label>
       <select id="tabs" class="bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
