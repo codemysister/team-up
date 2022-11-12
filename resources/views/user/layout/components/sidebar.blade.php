@@ -7,7 +7,7 @@
         <div id="navbar-default" class="mx-auto py-10 hidden md:block">
           <h1 class="text-2xl font-bold mb-10 cursor-pointer text-orange-500 duration-150">TeamUp</h1>
           <ul>
-            <li class="flex space-x-2 mt-10 cursor-pointer hover:text-[#EC5252] duration-150">
+            <li class="flex space-x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -15,15 +15,15 @@
               </svg>
               <span class="font-semibold"> <a href="{{url('/')}}">Home</a> </span>
             </li>
-            <li class="flex space-x-2 mt-10 cursor-pointer hover:text-[#EC5252] duration-150">
+            <li class="flex space-x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              <span class="font-semibold"><a href="{{url('/team-list')}}">All Team</a></span>
+              <span class="font-semibold active:text-[#EC5252]"><a href="{{url('/team-list')}}">All Team</a></span>
             </li>
-            <li class="flex space-x-2 mt-10 cursor-pointer hover:text-[#EC5252] duration-150">
+            <li class="flex space-x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path d="M12 14l9-5-9-5-9 5 9 5z" />
