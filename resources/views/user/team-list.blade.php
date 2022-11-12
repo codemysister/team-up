@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-
+    
     <div class="mx-6 grid grid-cols-1 sm:grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4 mt-10">
       <div class="shadow-lg rounded-t-md overflow-hidden ">
         <div class="">
@@ -107,18 +107,18 @@
           </div>
         </div>
       </div>
-
-
-
-
-     
       
       
-     
+      
+      
+      
+      
+      
+      
     </div>
   </div>
-
-
+  
+  
   @endsection
   
   
