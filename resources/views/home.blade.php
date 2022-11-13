@@ -559,7 +559,7 @@
 
 
 
-<div class="w-full bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
+<div id="service" class="w-full bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
   <div class="sm:hidden">
       <label for="tabs" class="sr-only">Select tab</label>
       <select id="tabs" class="bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
