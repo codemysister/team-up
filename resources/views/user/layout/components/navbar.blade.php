@@ -81,13 +81,23 @@
   
 </form>
 <div class="flex items-center space-x-4">
-  <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer" src="https://imagez.tmz.com/image/f7/1by1/2021/12/14/f7703994b69d48ca802df55729a2325c_xl.jpg" alt="User dropdown">
+  @if (Auth::user()->google_id == null) 
+  <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer" src="{{ asset(Auth::user()->profile_image) }} " alt="User dropdown">
+  @else
+  <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer" src="{{ Auth::user()->profile_image}} " alt="User dropdown">
+  @endif 
+  
   
   <!-- Dropdown menu -->
   <div id="userDropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
     <div class="py-3 px-4 text-sm text-gray-900 dark:text-white">
-      <div>Bonnie Green</div>
-      <div class="font-medium truncate">name@flowbite.com</div>
+      <div>
+        @if (Auth::user()->name != null)
+        {{Auth::user()->name}}
+        @endif
+        </div>
+      <div class="font-medium truncate">{{Auth::user()->email}}</div>
+      
     </div>
     <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
       <li>

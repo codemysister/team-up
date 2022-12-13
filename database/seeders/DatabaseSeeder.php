@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Category;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -33,6 +35,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Administrator',
             'email'     => 'admin@gmail.com',
             'password'  => bcrypt('teamup2022'),
+            'email_verified_at' => Carbon::now()
         ]);
 
         //get all permissions
@@ -56,5 +59,18 @@ class DatabaseSeeder extends Seeder
             'team.edit',
             'team.delete',
         ]);
+
+        Category::create([
+            'name' => 'Web Development',
+            'color' => '#C539B4'
+        ]);
+
+        Category::create([
+            'name' => 'Mobile Development',
+            'color' => '#DC3535'
+        ]);
+
+
+        // $this->call(SimulationSeeder::class);
     }
 }

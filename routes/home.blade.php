@@ -1,5 +1,5 @@
-<!doctype html >
-<html  class="scroll-smooth">
+<!doctype html>
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Teamup</title>
 </head>
-<body class="bg-white">
+<body class="bg-[#FFFFFF]">
   
 {{-- navbar --}}
 <nav class="bg-[#FFF5EC] font-poppins px-3 sm:px-4  py-2.5  fixed w-full z-20 top-0 left-0 border-gray-200 ">
@@ -38,19 +38,16 @@
   <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
     <ul class="flex flex-col p-4 mt-4 md:bg-[#FFF5EC]  rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  ">
       <li>
-        <a href="#home" class="block  py-2 pr-4 pl-3 lg:text-base text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 " aria-current="page">Home</a>
+        <a href="#" class="block  py-2 pr-4 pl-3 lg:text-base text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 " aria-current="page">Home</a>
       </li>
       <li>
-        <a href="#kategori" class="block py-2 pr-4 pl-3 lg:text-base text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Categori</a>
+        <a href="#" class="block py-2 pr-4 pl-3 lg:text-base text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">About</a>
       </li>
       <li>
-        <a href="#create-profile" class="block py-2 pr-4 pl-3 lg:text-base text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Fitur</a>
+        <a href="#" class="block py-2 pr-4 pl-3 lg:text-base text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Services</a>
       </li>
       <li>
-        <a href="#service" class="block py-2 pr-4 pl-3 lg:text-base text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Service</a>
-      </li>
-      <li>
-        <a href="{{url('/login')}}" class="block py-2 pr-4 pl-3 lg:text-base text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Team List</a>
+        <a href="#" class="block py-2 pr-4 pl-3 lg:text-base text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Contact</a>
       </li>
     </ul>
   </div>
@@ -61,11 +58,11 @@
 <section id="home" class=""> 
   <div class="bg-[#FFF5EC]  overflow-x-hidden sm:flex sm:relative sm:overflow-y-hidden">
     <div class="sm:container sm:mx-auto">
-      <h1 class="px-3 sm:px-4   pt-24 sm:pt-28 xl:pt-32 sm:w-[60%]   text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:text-[40px] font-bold font-poppins text-center sm:text-left">Be a Leader or <span class="text-orange-400">Member</span> </h1>
-        <p class="px-14  sm:px-4  sm:pt-2 pt-1 text-sm font-poppins text-center sm:text-left w-full sm:w-80 md:w-96 md:text-base ">Join your dream team and gain experience or invent your dream team</p>
+      <h1 class="px-3 sm:px-4 text-black  pt-24 sm:pt-28 xl:pt-32 sm:w-[60%]   text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:text-[40px] font-bold font-poppins text-center sm:text-left">Be a <span class="text-orange-400">Leader</span> or <span class="text-orange-400">Member</span> </h1>
+        <p class="px-14  sm:px-4  sm:pt-2 pt-1 text-sm font-poppins text-center sm:text-left w-full sm:w-80 md:w-96 md:text-base text-[#4F4F4F] ">Join your dream team and gain experience or invent your dream team</p>
         
         
-        <h5 class="px-14 text-center sm:text-left sm:px-4  pt-4 text-xl md:text-2xl xl:text-3xl font-poppins font-bold">Trending Jobs keyword </h5>
+        <h5 class="px-14 text-center sm:text-left sm:px-4 text-[#4F4F4F] pt-4 text-xl md:text-2xl xl:text-3xl font-poppins font-bold">Trending Team Categories </h5>
   
         <h5 class="text-[#F2994A] font-poppins font-bold sm:text-base md:text-lg xl:text-2xl px-3 sm:px-4  pt-1 text-center sm:text-left"> <span class="pr-2">Web Designer UI/UX</span>   <span class="pr-2" >Designer </span> <span class=""> Frontend</span> </h5>
         <div class="mt-5 flex justify-center sm:justify-start sm:px-4 lg:pb-20 xl:pb-28">
@@ -99,9 +96,9 @@
 
 
 {{-- carousel companies --}}
-<section id="" class="z-0">
+<section class="z-0 bg-[#FFFFFF]">
   <div class="pt-10  ">
-    <h5 class=" px-20  text-center font-light font-poppins lg:text-xl text-bold">Join Most Well Known <span class="text-[#F2994A] ">Companies</span>  Around The World</h5>
+    <h5 class=" px-20  text-center font-light font-poppins lg:text-xl text-bold text-[#4F4F4F]">Join Most Well Known <span class="text-[#F2994A] ">Companies</span>  Around The World</h5>
   </div>
 <div id="animation-carousel " class="relative" data-carousel="slide">
   <!-- Carousel wrapper -->
@@ -151,7 +148,7 @@
         <img src="{{asset('img/google.png')}}" class="absolute block  -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
     </div>
       <!-- Item 4 -->
-      <div class="hidden duration-200 ease-linear absolute inset-0 transition-all transform" data-carousel-item="">
+      <div class="hidden duration-200 ease-linear absolute inset-0 transition-all transform " data-carousel-item="">
         <img src="{{asset('img/airbnb.png')}}" class="absolute block  -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
     </div>
       <!-- Item 5 -->
@@ -181,7 +178,7 @@
 {{-- categori --}}
 <section id="kategori" >
   <div class="bg-[#FFF5EC] pb-9">
-    <h5 class="text-center font-poppins pt-10 ">Choose Categories</h5>
+    <h5 class="text-center font-poppins pt-10 text-[#4F4F4F]">Choose Categories</h5>
     <h3 class="text-center font-bold font-poppins pb-4 text-3xl text-[#F2994A]">Choose Categories</h3>
 
     {{-- swiper mobile --}}
@@ -494,24 +491,23 @@
 
 
 {{-- fiture 1 --}}
-<section id="create-profile" class="bg-[#FFF5EC] pb-10 overflow-hidden" >
+<section id="create-profile" class="bg-[#FFF5EC] pb-10" >
   <div class=" bg-[#fcfcfc] sm:bg-[#FFF5EC] w-[360px] sm:w-full  mx-auto rounded-3xl sm:rounded-none shadow-2xl sm:shadow-none mb-10 ">
     <div class="sm:flex ">
       <div class="">
         <img src="{{asset('img/profile.png')}}"  class="mx-auto sm:hidden " alt="">
         <img src="{{asset('img/profile.png')}}" width="450px"  class="hidden sm:block lg:hidden md:ml-6 " alt="">
-        <img src="{{asset('img/profile.png')}}" width="900px"  class="hidden   lg:block xl:hidden  md:ml-6 lg:ml-20 " alt="">
-        <img src="{{asset('img/profile.png')}}" width="900px"  class="hidden   lg:hidden xl:block  md:ml-6 lg:ml-20 xl:ml-32 " alt="">
+        <img src="{{asset('img/profile.png')}}" width="900px"  class="hidden   lg:block  md:ml-6 lg:ml-20 " alt="">
       </div>
-      <div class="sm:w-96   sm:-ml-20 md:-ml-10 lg:pl-32 lg:w-full   sm:mt-10 xl:mt-36 ">
-        <h5 class="px-4 font-poppins text-[#F2994A] text-xl sm:text-lg xl:ml-20">Create Profile</h5>
-        <h3 class="px-4 text-2xl sm:text-xl md:text-3xl lg:text-4xl font-poppins font-bold lg:w-full xl:ml-20">Join Your Dream Team</h3>
-        <p class="px-4 text-center lg:w-[490px] lg:text-[21] sm:text-left text-base font-poppins xl:ml-20">create your account as a member and choose your favorite team, get a project with your team, and grow with the team</p>
-        <p class="px-auto hidden sm:block sm:px-4 md:px-5 font-poppins  font-light xl:ml-20"> <i class='bx bxs-badge-check' ></i>  Join team</p>
-        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light xl:ml-20"> <i class='bx bxs-badge-check' ></i>  Find a job</p>
-        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light xl:ml-20"> <i class='bx bxs-badge-check' ></i>  Send a message to team members via group chat</p>
+      <div class="sm:w-96   sm:-ml-20 md:-ml-10 lg:pl-32 lg:w-full text-[#4F4F4F]  sm:mt-10">
+        <h5 class="px-4 font-poppins text-[#F2994A] text-xl sm:text-lg ">Member</h5>
+        <h3 class="px-4 text-2xl sm:text-xl md:text-3xl lg:text-4xl font-poppins font-bold lg:w-full ">Join Your Dream Team</h3>
+        <p class="px-4 text-center lg:w-[490px] lg:text-[21] sm:text-left text-base font-poppins">create your account as a member and choose your favorite team, get a project with your team, and grow with the team</p>
+        <p class="px-auto hidden sm:block sm:px-4 md:px-5 font-poppins  font-light "> <i class='bx bxs-badge-check' ></i>  Join team</p>
+        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light"> <i class='bx bxs-badge-check' ></i>  Find a job</p>
+        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light"> <i class='bx bxs-badge-check' ></i>  Send a message to team members via group chat</p>
         
-        <button type="button" class="text-white xl:ml-20 mx-[30%] sm:mx-4  mt-2  bg-[#F2994A] hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-6 ">Create Account</button>
+        <button type="button" class="text-white mx-[30%] sm:mx-4  mt-2  bg-[#F2994A] hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-6 ">Create Account</button>
       </div>
     </div>
   </div>
@@ -522,32 +518,28 @@
 <section id="uploadcv" class="bg-[#FFF5EC] pb-10 ">
   <div class="bg-[#fcfcfc] sm:sm:bg-[#FFF5EC] w-[360px] sm:w-[100%] mx-auto rounded-3xl sm:rounded-none shadow-2xl sm:shadow-none mb-10 ">
     <div class="flex sm:relative sm:container sm:mx-auto sm:overflow-hidden">
-      <div class="sm:w-96 lg:w-full sm:h-auto  ">
+      <div class="sm:w-96 lg:w-full sm:h-auto text-[#4F4F4F] ">
         <img src="{{asset('img/uploadcv.png')}}" class="sm:hidden lg:hidden" alt="">
 
-        <h5 class="px-4 sm:px-4 md:px-2 lg:px-4 xl:px-28 font-poppins text-[#F2994A] text-xl sm:text-lg ">Leader Team</h5>
-        <h3 class="px-4 sm:px-4 md:px-2 lg:px-4  xl:px-28 text-2xl sm:text-xl  md:text-3xl lg:text-4xl font-poppins  font-bold md:w-full">Invent Your Dream Team</h3>
-        <p class="px-4 sm:px-4 md:px-2 lg:px-4  xl:px-28 sm:w-[329px] lg:w-[500px] xl:w-[700px] text-center sm:text-left text-base font-poppins">create your account as leader and create your dream team, manage team, get project with your team and grow with team:</p>
-        <p class="px-auto hidden sm:block sm:px-4 md:px-5  xl:px-28 font-poppins  font-light xl:text-lg"> <i class='bx bxs-badge-check' ></i>  Build your team</p>
-        <p class="px-auto  hidden sm:block sm:px-4 md:px-5  xl:px-28 font-poppins  font-light xl:text-lg"> <i class='bx bxs-badge-check' ></i>  Manage team</p>
-        <p class="px-auto  hidden sm:block sm:px-4 md:px-5  xl:px-28 font-poppins  font-light xl:text-lg"> <i class='bx bxs-badge-check' ></i>  Hire members</p>
-        <p class="px-auto  hidden sm:block sm:px-4 md:px-5  xl:px-28 font-poppins  font-light xl:text-lg"> <i class='bx bxs-badge-check' ></i>  Find a job</p>
-        <p class="px-auto  hidden sm:block sm:px-4 md:px-5  xl:px-28 font-poppins  font-light xl:text-lg"> <i class='bx bxs-badge-check' ></i>  Send a message to team members via group chat
+        <h5 class="px-4 sm:px-4 md:px-2 lg:px-4  font-poppins text-[#F2994A] text-xl sm:text-lg ">Leader Team</h5>
+        <h3 class="px-4 sm:px-4 md:px-2 lg:px-4 text-2xl sm:text-xl  md:text-3xl lg:text-4xl font-poppins  font-bold md:w-full">Invent Your Dream Team</h3>
+        <p class="px-4 sm:px-4 md:px-2 lg:px-4 sm:w-[329px] lg:w-[500px] text-center sm:text-left text-base font-poppins">create your account as leader and create your dream team, manage team, get project with your team and grow with team:</p>
+        <p class="px-auto hidden sm:block sm:px-4 md:px-5 font-poppins  font-light "> <i class='bx bxs-badge-check' ></i>  Build your team</p>
+        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light"> <i class='bx bxs-badge-check' ></i>  Manage team</p>
+        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light"> <i class='bx bxs-badge-check' ></i>  Hire members</p>
+        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light"> <i class='bx bxs-badge-check' ></i>  Find a job</p>
+        <p class="px-auto  hidden sm:block sm:px-4 md:px-5 font-poppins  font-light"> <i class='bx bxs-badge-check' ></i>  Send a message to team members via group chat
         </p>
 
         
-        <button type="button" class="text-white mx-[30%] sm:mx-4 md:px-2 mt-2 lg:mb-32  bg-[#F2994A] hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-6 xl:ml-28 ">Create Account</button>
+        <button type="button" class="text-white mx-[30%] sm:mx-4 md:px-2 mt-2 lg:mb-32  bg-[#F2994A] hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-6 ">Create Account</button>
       </div>
       <div class="">
         <img src="{{asset('img/uploadcv.png')}}" width="430px" class="hidden sm:block lg:hidden sm:absolute sm:-right-9  sm:-top-12" alt="">
       </div>
 
       <div class="">
-        <img src="{{asset('img/uploadcv.png')}}" width="500px" class="hidden  lg:block xl:hidden sm:absolute sm:-right-9  sm:-top-12" alt="">
-      </div>
-
-      <div class="">
-        <img src="{{asset('img/uploadcv.png')}}" width="500px" class="hidden  lg:hidden xl:block sm:absolute sm:-right-9 xl:right-24  sm:-top-12 " alt="">
+        <img src="{{asset('img/uploadcv.png')}}" width="500px" class="hidden  lg:block sm:absolute sm:-right-9  sm:-top-12" alt="">
       </div>
     </div>
   </div>
@@ -559,121 +551,125 @@
 
 
 
-<div id="service" class="w-full bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
+<div class="w-full bg-white rounded-lg border shadow-md ">
   <div class="sm:hidden">
       <label for="tabs" class="sr-only">Select tab</label>
-      <select id="tabs" class="bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <select id="tabs" class="bg-gray-50 border-0 border-b border-gray-200 text-gray-900 sm:text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
           <option>Statistics</option>
           <option>Services</option>
           <option>FAQ</option>
       </select>
   </div>
-  <ul class="hidden text-sm font-medium text-center text-gray-500 rounded-lg divide-x divide-gray-200 sm:flex dark:divide-gray-600 dark:text-gray-400" id="fullWidthTab" data-tabs-toggle="#fullWidthTabContent" role="tablist">
+  <ul class="hidden text-sm font-medium text-center text-gray-500 rounded-lg divide-x divide-gray-200 sm:flex " id="fullWidthTab" data-tabs-toggle="#fullWidthTabContent" role="tablist">
       <li class="w-full">
-          <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="true" class="inline-block p-4 w-full bg-gray-50 rounded-tl-lg hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 dark:border-blue-500">Statistics</button>
+          <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="true" class="inline-block p-4 w-full bg-gray-50 rounded-tl-lg hover:bg-gray-100 focus:outline-none  text-blue-600 hover:text-blue-600  border-blue-600 ">Statistics</button>
       </li>
       <li class="w-full">
-          <button id="about-tab" data-tabs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false" class="inline-block p-4 w-full bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300">Services</button>
+          <button id="about-tab" data-tabs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false" class="inline-block p-4 w-full bg-gray-50 hover:bg-gray-100 focus:outline-none  text-gray-500 hover:text-gray-600  border-gray-100 hover:border-gray-300 ">Services</button>
       </li>
       <li class="w-full">
-          <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab" aria-controls="faq" aria-selected="false" class="inline-block p-4 w-full bg-gray-50 rounded-tr-lg hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300">FAQ</button>
+          <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab" aria-controls="faq" aria-selected="false" class="inline-block p-4 w-full bg-gray-50 rounded-tr-lg hover:bg-gray-100 focus:outline-none   text-gray-500 hover:text-gray-600  border-gray-100 hover:border-gray-300 ">FAQ</button>
       </li>
   </ul>
-  <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
-      <div class="p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="stats" role="tabpanel" aria-labelledby="stats-tab">
-          <dl class="grid grid-cols-2 gap-8 p-4 mx-auto max-w-screen-xl text-gray-900 sm:grid-cols-3 xl:grid-cols-6 dark:text-white sm:p-8">
+  <div id="fullWidthTabContent" class="border-t border-gray-200 ">
+      <div class="p-4 bg-white rounded-lg md:p-8 " id="stats" role="tabpanel" aria-labelledby="stats-tab">
+          <dl class="grid grid-cols-2 gap-8 p-4 mx-auto max-w-screen-xl text-gray-900 sm:grid-cols-3 xl:grid-cols-6  sm:p-8">
               <div class="flex flex-col justify-center items-center">
                   <dt class="mb-2 text-3xl font-extrabold">73M+</dt>
-                  <dd class="font-light text-gray-500 dark:text-gray-400">Developers</dd>
+                  <dd class="font-light text-gray-500 ">Developers</dd>
               </div>
               <div class="flex flex-col justify-center items-center">
                   <dt class="mb-2 text-3xl font-extrabold">100M+</dt>
-                  <dd class="font-light text-gray-500 dark:text-gray-400">Public repositories</dd>
+                  <dd class="font-light text-gray-500 ">Public repositories</dd>
               </div>
               <div class="flex flex-col justify-center items-center">
                   <dt class="mb-2 text-3xl font-extrabold">1000s</dt>
-                  <dd class="font-light text-gray-500 dark:text-gray-400">Open source projects</dd>
+                  <dd class="font-light text-gray-500 ">Open source projects</dd>
               </div>
               <div class="flex flex-col justify-center items-center">
                   <dt class="mb-2 text-3xl font-extrabold">1B+</dt>
-                  <dd class="font-light text-gray-500 dark:text-gray-400">Contributors</dd>
+                  <dd class="font-light text-gray-500 ">Contributors</dd>
               </div>
               <div class="flex flex-col justify-center items-center">
                   <dt class="mb-2 text-3xl font-extrabold">90+</dt>
-                  <dd class="font-light text-gray-500 dark:text-gray-400">Top Forbes companies</dd>
+                  <dd class="font-light text-gray-500 ">Top Forbes companies</dd>
               </div>
               <div class="flex flex-col justify-center items-center">
                   <dt class="mb-2 text-3xl font-extrabold">4M+</dt>
-                  <dd class="font-light text-gray-500 dark:text-gray-400">Organizations</dd>
+                  <dd class="font-light text-gray-500 ">Organizations</dd>
               </div>
           </dl>
       </div>
-      <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
-          <h2 class="mb-5 text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">We invest in the world’s potential</h2>
+      <div class="hidden p-4 bg-white rounded-lg md:p-8 " id="about" role="tabpanel" aria-labelledby="about-tab">
+          <h2 class="mb-5 text-2xl font-extrabold tracking-tight text-gray-900 ">We invest in the world’s potential</h2>
           <!-- List -->
-          <ul role="list" class="space-y-4 text-gray-500 dark:text-gray-400">
+          <ul role="list" class="space-y-4 text-gray-500 ">
               <li class="flex space-x-2">
                   <!-- Icon -->
-                  <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                  <svg class="flex-shrink-0 w-4 h-4 text-blue-600 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                   <span class="font-light leading-tight">Dynamic reports and dashboards</span>
               </li>
               <li class="flex space-x-2">
                   <!-- Icon -->
-                  <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                  <svg class="flex-shrink-0 w-4 h-4 text-blue-600 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                   <span class="font-light leading-tight">Templates for everyone</span>
               </li>
               <li class="flex space-x-2">
                   <!-- Icon -->
-                  <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                  <svg class="flex-shrink-0 w-4 h-4 text-blue-600 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                   <span class="font-light leading-tight">Development workflow</span>
               </li>
               <li class="flex space-x-2">
                   <!-- Icon -->
-                  <svg class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                  <svg class="flex-shrink-0 w-4 h-4 text-blue-600 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                   <span class="font-light leading-tight">Limitless business automation</span>
               </li>
           </ul>
       </div>
-      <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="faq" role="tabpanel" aria-labelledby="faq-tab">
-          <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white dark:bg-gray-800 text-gray-900 dark:text-white" data-inactive-classes="text-gray-500 dark:text-gray-400">
+      <div class="hidden p-4 bg-white rounded-lg md:p-8 " id="faq" role="tabpanel" aria-labelledby="faq-tab">
+          <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white  text-gray-900 " data-inactive-classes="text-gray-500 ">
               <h2 id="accordion-flush-heading-1">
-                  <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" data-accordion-target="#accordion-flush-body-1" aria-expanded="true" aria-controls="accordion-flush-body-1">
+                  <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left border-b border-gray-200  bg-white text-gray-900 " data-accordion-target="#accordion-flush-body-1" aria-expanded="true" aria-controls="accordion-flush-body-1">
                   <span>Apa itu TeamUp</span>
                   <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                   </button>
               </h2>
               <div id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
-                  <div class="py-5 font-light border-b border-gray-200 dark:border-gray-700">
-                  <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
-                  <p class="text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" class="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
+                  <div class="py-5 font-light border-b border-gray-200 ">
+                  <p class="mb-2 text-gray-500 ">
+                    TeamUp adalah sebuah website yang dipergunakan untuk membentuk timfreelance, 
+                    secara garis besar website ini nantinya dipergunakan untuk mencari tim freelance bagi seorang mahasiswa 
+                    seseorang yang memutuhkan tim dan digunakan untuk membuat tim bagi seseorang freelance yang sedang kebanjiran job (teamleader) dan dia ingin merekrut tim, 
+                    maka dia dapat membuka rekrutmen dengan berbagai ketentuan sesuai kebutuhan teamleader di website TeamUp</p>
+                  <p class="text-gray-500 ">dan nantinya di website TeamUp juga akan menyediakan list pekerjaan freelance yang diambil dari API website <a href="/docs/getting-started/introduction/" class="text-blue-600  hover:underline"> freelance.com</a> </p>
                   </div>
               </div>
               <h2 id="accordion-flush-heading-2">
-                  <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-2" aria-expanded="false" aria-controls="accordion-flush-body-2">
+                  <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-500 border-b border-gray-200  " data-accordion-target="#accordion-flush-body-2" aria-expanded="false" aria-controls="accordion-flush-body-2">
                   <span>Is there a Figma file available?</span>
                   <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                   </button>
               </h2>
               <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
-                  <div class="py-5 font-light border-b border-gray-200 dark:border-gray-700">
-                  <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
-                  <p class="text-gray-500 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/" class="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
+                  <div class="py-5 font-light border-b border-gray-200 ">
+                  <p class="mb-2 text-gray-500 ">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
+                  <p class="text-gray-500 ">Check out the <a href="https://flowbite.com/figma/" class="text-blue-600  hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
                   </div>
               </div>
               <h2 id="accordion-flush-heading-3">
-                  <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-3" aria-expanded="false" aria-controls="accordion-flush-body-3">
+                  <button type="button" class="flex justify-between items-center py-5 w-full font-medium text-left text-gray-500 border-b border-gray-200  " data-accordion-target="#accordion-flush-body-3" aria-expanded="false" aria-controls="accordion-flush-body-3">
                   <span>What are the differences between Flowbite and Tailwind UI?</span>
                   <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                   </button>
               </h2>
               <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
-                  <div class="py-5 font-light border-b border-gray-200 dark:border-gray-700">
-                  <p class="mb-2 text-gray-500 dark:text-gray-400">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.</p>
-                  <p class="mb-2 text-gray-500 dark:text-gray-400">However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.</p>
-                  <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
-                  <ul class="pl-5 list-disc text-gray-500 dark:text-gray-400">
-                      <li><a href="https://flowbite.com/pro/" class="text-blue-600 dark:text-blue-500 hover:underline">Flowbite Pro</a></li>
-                      <li><a href="https://tailwindui.com/" rel="nofollow" class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
+                  <div class="py-5 font-light border-b border-gray-200 ">
+                  <p class="mb-2 text-gray-500 ">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.</p>
+                  <p class="mb-2 text-gray-500 ">However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.</p>
+                  <p class="mb-2 text-gray-500 ">Learn more about these technologies:</p>
+                  <ul class="pl-5 list-disc text-gray-500 ">
+                      <li><a href="https://flowbite.com/pro/" class="text-blue-600  hover:underline">Flowbite Pro</a></li>
+                      <li><a href="https://tailwindui.com/" rel="nofollow" class="text-blue-600  hover:underline">Tailwind UI</a></li>
                   </ul>
                   </div>
               </div>
@@ -681,7 +677,6 @@
       </div>
   </div>
 </div>
-
 
 
 

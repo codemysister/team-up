@@ -50,10 +50,14 @@
               </svg>
               <span class="font-semibold"><a href="{{url('/setting')}}">Setting</a></span>
             </li>
-            <button class="w-full mt-10 bg-[#EC5252] rounded-full py-1.5 text-white">Logout</button>
+            <form action="{{url('logout')}}" method="POST">
+              @csrf
+              <button type="submit" class="w-full mt-10 bg-[#EC5252] rounded-full py-1.5 text-white">Logout</button>
+          </form>
           </ul>
         </div>
       </div>
 
+     
 
 <!-- drawer init and toggle -->

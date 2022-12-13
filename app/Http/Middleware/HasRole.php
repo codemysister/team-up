@@ -17,10 +17,11 @@ class HasRole
     public function handle(Request $request, Closure $next)
     {
 
-        if ($request->user()->hasRole(['leader', 'member'])) {
-            return $next($request);
-        }
 
-        return redirect('/role');
+        if ($request->user()->hasRole(['leader', 'member', 'admin'])) {
+            return $next($request);
+        } else {
+            return redirect('/role');
+        }
     }
 }
