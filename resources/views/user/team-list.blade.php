@@ -4,6 +4,11 @@
 
 <div class="mx-6">
   <div class="flex justify-between  items-center">
+    @if (session('status'))
+    <div class="alert alert-success">
+      {{ session('status') }}
+    </div>
+    @endif
     <h1 class="my-6 text-3xl ">Team List</h1>
     @role('leader')
     <button class="relative inline-flex justify-center  overflow-hidden text-sm font-medium rounded-lg focus:outline-none text-white bg-[#05FF00] hover:bg-[#47F644] focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 h-1/2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 " type="button" data-modal-toggle="medium-modal-1">
@@ -46,11 +51,16 @@
             </div>
             
             <div class="" id="requirement">
+              <label for="requirement" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Requirement</label>
               <div class="flex justify-between gap-x-2 flex-row items-center mb-3 relative">
-                <div class="basis-1/4 relative">
-                  <input type="text" name="requirement[0][role]" id="requirement" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="role..." required>
+                <div class="basis-[30%] relative">
+                  <input type="text" name="requirement[0][role]" id="requirement" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="role..." required>
+                  
                 </div>
-                <div class="basis-[75%] relative">
+                <div class="basis-[30%] relative">
+                  <input type="text" name="requirement[0][salary]" id="requirement" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="salary..." required>
+                </div>
+                <div class="basis-[40%] relative">
                   
                   <div class="relative">
                     
@@ -71,7 +81,7 @@
               
             </div>
             
-            <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create</button>
+            <button type="submit"  onclick="sweatAlert()" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create</button>
             
           </form>
         </div>
@@ -105,17 +115,30 @@
       </div>
     </div>
     
-    <div class="mx-6 grid grid-cols-1 sm:grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4 mt-10">
+    <div class="mx-6 grid grid-cols-1 sm:grid-cols-1 gap-6 md:grid-cols-6 lg:grid-cols-3 mt-10">
       
       @foreach ($teams as $team)
       
       
       <div class="shadow-lg rounded-t-md overflow-hidden ">
         <div class="">
-          <img class="w-sm" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29kZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="" />
+          <img class="w-sm max-h-40 w-full" src="{{$team->image}}" alt="" />
           <div class="p-2 relative">
-            <p class="text-lg mt-6 font-semibold">{{$team->name}}</p>
-            <p class="max-h-[118px] overflow-hidden text-ellipsis">{{$team->description}}</p>
+            <p class="text-lg mt-4 mb-2 font-semibold">{{$team->name}} <span class="text-white text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full" style="background-color: {{$team->category->color}}">{{$team->category->name}}</span></p>
+            <p class="max-h-[118px] mb-3 overflow-hidden text-ellipsis">{{$team->description}}</p>
+            
+            <div class="flex">
+              <p class="w-[15%]">
+                Tags : 
+              </p>
+              <div class="w-[85%]">
+                @foreach ($team->requirements as $requirement)   
+                
+                <span class="text-white text-xs font-medium px-2.5 py-0.5 rounded-full" style="background-color: {{$requirement->color}}">{{$requirement->role}}</span>
+                @endforeach
+              </div>
+            </div>
+            
             <div class="flex -space-x-4 justify-between mt-1">
               <div>
               </div>
@@ -125,7 +148,7 @@
             </div>
             
             
-            <img class="h-12 w-12 rounded-full absolute -top-6 p-0.5 border-2 right-6" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" />
+            <img class="h-12 w-12 rounded-full absolute -top-6 p-0.5 border-2 right-6" src="{{$team->owner->avatar != null ? asset('storage/'.$team->owner->avatar) : ($team->owner->google_id == null ? asset($team->owner->profile_image) : $team->owner->profile_image)}}" alt="" />
           </div>
         </div>
       </div>
@@ -144,18 +167,28 @@
   @push('script')
   
   <script>
-   
+    
     function removeChild(e){
       e.remove()
     }
     
+
+    public int checkAssesment(int n){
+      int result = 0;
+      for(int i = 0; i*i <n; i++){
+        result += i;
+      }
+
+      return result;
+    }
+
     function tambahChild(e, id)
     {
-
+      
       let parent = e.parentNode;
       let buyut = parent.parentNode;
       
-     
+      
       
       let relativeChild = document.createElement('div');
       relativeChild.className = "relative";
@@ -180,14 +213,14 @@
       relativeChild.appendChild(child2Relative)
       
       buyut.appendChild(relativeChild);
-
+      
     }
     
     
     let count = 0;
-
+    
     function tambah(){
-  
+      
       
       let id = ++count;
       let el = document.getElementById('requirement');
@@ -196,16 +229,16 @@
       parent.className = 'flex justify-between gap-x-2 flex-row items-center mb-3';
       
       let parentInput1 = document.createElement('div');
-      parentInput1.className = 'basis-1/4';
+      parentInput1.className = 'basis-[30%]';
       let child1 = document.createElement('input');
       child1.name = `requirement[${id}][role]`;
       child1.className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white';
-      child1.placeholder = 'TeamUp'
+      child1.placeholder = 'role...'
       parentInput1.appendChild(child1)
       
       
       let parentInput2 = document.createElement('div');
-      parentInput2.className = 'basis-[75%]';
+      parentInput2.className = 'basis-[40%]';
       
       let relativeChild = document.createElement('div');
       relativeChild.className = "relative";
@@ -244,7 +277,12 @@
       }
       parentInput3.appendChild(button);
       
+      let parentInput4 = document.createElement('div');
+      parentInput4.className = 'basis-[30%]'
+      parentInput4.innerHTML = `<input type="text" name="requirement[${id}][salary]" id="requirement" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="salary..." required>`
+      
       parent.appendChild(parentInput1)
+      parent.appendChild(parentInput4)
       parent.appendChild(parentInput2)
       parent.appendChild(parentInput3)
       
@@ -252,7 +290,14 @@
       el.appendChild(parent)
     }
     
-    
+    function sweatAlert()
+    {
+      Swal.fire(
+      'Create Team Success',
+      'You clicked the button!',
+      'success'
+      )
+    }
     
     function remove(e) {
       let parent1 = e.parentNode;

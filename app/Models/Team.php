@@ -21,13 +21,29 @@ class Team extends Model
         return $this->belongsToMany('App\Models\User')->withPivot('status', 'role', 'message', 'cv');
     }
 
-    public function categories()
+    public function owner()
     {
-        return $this->belongsToMany('App\Models\Category');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
 
     public function requirements()
     {
         return $this->hasMany('App\Models\Requirement');
+    }
+
+    public function members()
+    {
+        return $this->hasMany('App\Models\Member');
+    }
+
+    public function roles()
+    {
+        return $this->hasMany('App\Models\Role');
     }
 }

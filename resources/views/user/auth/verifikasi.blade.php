@@ -14,14 +14,17 @@
         <img class="w-full h-full mt-[10%] sm:mt-0 md:w-[600px] md:mx-auto lg:w-[600px] lg:-mt-20 lg:mx-auto" src="{{asset('img/email-verification.png')}}">
         <h1 class="font-poppins text-3xl px-5 text-center -mt-16 sm:-mt-28 mb-2 font-bold md:text-4xl">Confirm your email </h1>
         <p class="font-base font-poppins  text-center px-1  mx-auto -mt-13 text-xl md:text-2xl  md:text-center ">We have sent verification email to</p>
-        <p class=" text-gray-800 font-poppins font-bold text-center text-xl my-1">deva@gmail.com</p>
+        <p class=" text-gray-800 font-poppins font-bold text-center text-xl my-1">{{auth()->user()->email}}</p>
         <p class="font-base font-poppins  text-justify px-4 mx-auto -mt-13 text-xl md:text-2xl sm:text-center lg:w-[600px] ">please check your email and complete the verification process to proceed to the next step</p>
 
        
-        <div class="ml-[30%] sm:ml-[40%] lg:ml-[45%]  mt-5">
-          <button type="button" class="text-white   focus:ring-4 focus:outline-none focus:ring-pink-200 bg-orange-500 hover:bg-orange-600 font-medium rounded-lg text-base px-5 py-2.5 text-center mr-2 mb-2">Resend Email</button>
+        <form action="{{url('/email/verification-notification')}}" method="POST">
+        @csrf
 
+        <div class="ml-[30%] sm:ml-[40%] lg:ml-[45%]  mt-5">
+          <button type="submit" class="text-white   focus:ring-4 focus:outline-none focus:ring-pink-200 bg-orange-500 hover:bg-orange-600 font-medium rounded-lg text-base px-5 py-2.5 text-center mr-2 mb-2">Resend Email</button>
         </div>
+        </form>
        
         
 

@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'locale' => 'id',
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -186,13 +186,13 @@ return [
          * Package Service Providers...
          */
         App\Providers\FortifyServiceProvider::class,
-
+        // Unsplash\UnsplashServiceProvider::class,
         /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
@@ -210,6 +210,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        // 'Unsplash' => Unsplash\Facades\Unsplash::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

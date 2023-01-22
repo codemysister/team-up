@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('conversations', function (Blueprint $table) {
+        Schema::create('team_has_role', function (Blueprint $table) {
             $table->id();
-            $table->string('channel');
-            $table->foreignId('member_id')->constrained()->onDelete('cascade');
-            $table->string('message');
+            $table->foreignId('team_id')->constrained()->onDelete('cascade');
+            $table->string('role');
+            $table->string('color');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('conversations');
+        Schema::dropIfExists('roles');
     }
 };

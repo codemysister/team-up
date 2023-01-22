@@ -21,7 +21,8 @@ class RequirementController extends Controller
             $new_requirement = Requirement::create([
                 'team_id' => $team->id,
                 'role' => $requirement['role'],
-                'color' => '#FFF'
+                'salary' => $requirement['salary'],
+                'color' => '#' . random_int(111111, 999999)
             ]);
 
             foreach ($requirement['qualification'] as $qualification) {
@@ -50,6 +51,7 @@ class RequirementController extends Controller
             $arr = [];
             $arr['role'] = $requirement->role;
             $arr['id'] = $requirement->id;
+            $arr['salary'] = $requirement->salary;
 
 
             foreach ($requirement->qualification as $qualification) {
@@ -68,7 +70,12 @@ class RequirementController extends Controller
 
     public function update(Request $request)
     {
+
         $requirement = Requirement::with('qualification')->where('id', request('id'))->first();
+        $requirement->update([
+            'role' => $request->requirements["role"],
+            'salary' => $request->requirements["salary"],
+        ]);
         foreach ($request->requirements["qualification"] as $qualification) {
 
             if ($qualification["id"] == null) {
@@ -84,6 +91,15 @@ class RequirementController extends Controller
         }
 
         return response()->json(['success' => true]);
+    }
+
+    public function destroy()
+    {
+        if (request('id')) {
+            $requirement = Requirement::where('id', request('id'))->first();
+            $requirement->delete();
+            return response()->json(['status' => 'success']);
+        }
     }
 
     public function destroyQualification()

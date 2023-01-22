@@ -9,9 +9,8 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Log;
 
-class SendMessage implements ShouldBroadcast
+class NotificationSend implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -20,16 +19,10 @@ class SendMessage implements ShouldBroadcast
      *
      * @return void
      */
-    public $conversation;
-
-    public function __construct($conversation)
+    public $notification;
+    public function __construct($notification)
     {
-        $this->conversation = $conversation;
-    }
-
-    public function broadcastAs()
-    {
-        return 'kirim';
+        $this->notification = $notification;
     }
 
     /**
@@ -39,8 +32,6 @@ class SendMessage implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-
-        Log::debug("Created");
-        return new Channel('team.' . $this->conversation["team_id"]);
+        return new PrivateChannel("notification." . $this->notification->user_id);
     }
 }

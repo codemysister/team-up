@@ -37,4 +37,10 @@ return [
         'redirect'      => env('GOOGLE_REDIRECT'),
     ],
 
+    'unsplash' => [
+        'access_key' => 'w0cwqf6C-Gsfzqu4aYIOOqCYihwLF48HQIZu6DdNdfA',
+        'secret_key' => 'r6hAcT08KYg86gdsSi3tl_nVdJuR2esA0l6wklgCRi4',
+        'callback_url' => 'http://127.0.0.1:8000/',
+    ]
+
 ];

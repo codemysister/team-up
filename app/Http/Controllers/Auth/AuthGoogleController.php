@@ -38,7 +38,8 @@ class AuthGoogleController extends Controller
                     'email' => $googlebUser->email,
                     'profile_image' => $googlebUser->getAvatar(),
                     'password' => Hash::make(Str::random(30)),
-                    'email_verified_at' => Carbon::now()->toDateTime()
+                    'email_verified_at' => Carbon::now()->toDateTime(),
+                    'google_id' => $googlebUser->id
                 ]
             );
         }

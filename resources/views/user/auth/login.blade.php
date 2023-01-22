@@ -11,7 +11,8 @@
     <section class="flex flex-col md:flex-row h-screen items-center">
         <div class="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:my-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center">
             <div class="w-full h-100"> 
-                <img src="{{asset('img/logo.png')}}" width="" class="mr-3 mt-10 sm:h-9" alt="Flowbite Logo">
+                {{-- <img src="{{asset('img/logo.png')}}" width="" class="mr-3 mt-10 sm:h-9" alt="Flowbite Logo"> --}}
+                <p class="text-4xl font-bold text-[#F2994A]">TeamUp</p>
                 <h1 class="text-4xl mt-3 font-bold font-poppins">
                     Welcome back
                 </h1>

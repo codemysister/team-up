@@ -2,18 +2,17 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Conversation extends Model
+class TaskRole extends Model
 {
     use HasFactory;
-
     protected $guarded = [];
+    protected $table = 'task_has_role';
 
-    public function getCreatedAtAttribute($value)
+    public function role()
     {
-        return Carbon::create($value)->isoFormat('HH:mm');
+        return $this->belongsTo(TeamRole::class);
     }
 }

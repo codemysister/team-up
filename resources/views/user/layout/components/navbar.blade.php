@@ -66,13 +66,13 @@
 </div>
 
 
-<form class="flex items-center">   
+<form class="flex items-center" action="{{url('/team-list')}}">   
   <label for="simple-search" class="sr-only">Search</label>
   <div class="relative w-full">
     <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
       <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
     </div>
-    <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5       " placeholder="Search Team" required>
+    <input type="text" id="simple-search" name="searchKeyword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5       " placeholder="Search Team" required>
   </div>
   <button type="submit" class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
@@ -81,8 +81,46 @@
   
 </form>
 <div class="flex items-center space-x-4">
-  @if (Auth::user()->google_id == null) 
-  <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer" src="{{ asset(Auth::user()->profile_image) }} " alt="User dropdown">
+  
+  
+  <button id="btnNotification" onclick="{{$notificationStatus != 0 ? 'updateStatusNotif()' : ''}}" data-dropdown-toggle="dropdownNotification" class="inline-flex items-center text-sm font-medium text-center text-gray-500 hover:text-gray-900 focus:outline-none dark:hover:text-white dark:text-gray-400" type="button"> 
+    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path></svg>
+    @if ($notificationStatus != 0)  
+    <div class="relative flex" id="red_dot">
+      <div class="relative inline-flex w-3 h-3 bg-red-500 border-2 border-white rounded-full -top-2 right-3 dark:border-gray-900"></div>
+    </div>
+    @endif
+  </button>
+  <!-- Dropdown menu -->
+  <div id="dropdownNotification"  class="z-20 hidden w-full max-w-sm bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-800 dark:divide-gray-700" aria-labelledby="btnNotification">
+    <div class="block px-4 py-2 font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-800 dark:text-white">
+      Notifications
+    </div>
+    <div id='notification_area' class="divide-y divide-gray-100 dark:divide-gray-700">
+      
+      @foreach ($notifications as $notif)
+      
+      <a href="{{$notif->link}}" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+        
+        <div class="w-full pl-3">
+          <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">{!! $notif->message !!}</div>
+          <div class="text-xs text-blue-600 dark:text-blue-500">{{Carbon\Carbon::create($notif->created_at)->diffForHumans()}}</div>
+        </div>
+      </a>
+      @endforeach
+      
+    </div>
+    <a href="#" class="block py-2 text-sm font-medium text-center text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+      <div class="inline-flex items-center ">
+        <svg class="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
+        View all
+      </div>
+    </a>
+  </div>
+  
+  
+  @if (Auth::user()->avatar != null) 
+  <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer" src="{{ asset('storage/'.Auth::user()->avatar) }} " alt="User dropdown">
   @else
   <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer" src="{{ Auth::user()->profile_image}} " alt="User dropdown">
   @endif 
@@ -95,7 +133,7 @@
         @if (Auth::user()->name != null)
         {{Auth::user()->name}}
         @endif
-        </div>
+      </div>
       <div class="font-medium truncate">{{Auth::user()->email}}</div>
       
     </div>
@@ -116,3 +154,48 @@
   </div>
 </div>
 </nav>
+
+@push('notif')
+<script>
+  function updateStatusNotif(){
+    axios.put(`/notification`)
+    .then((response)=>{
+      let dot = document.getElementById('red_dot');
+      dot.className = "hidden";
+    });
+  }
+</script>
+
+<script type="module">
+  
+  
+ 
+  let notificationArea = document.getElementById('notification_area');
+  
+  // let e = document.getElementById('teamID').value;  
+  Echo.private('notification.'+{{auth()->user()->id}}).listen('NotificationSend',({notification})=>{
+    
+    console.log(notification);
+    let notificationNode = document.createElement('a');
+    notificationNode.className = "flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700";
+    notificationNode.href = notification.link;
+    notificationNode.innerHTML  = `
+    <div class="w-full pl-3">
+      <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">${notification.message}</div>
+      <div class="text-xs text-blue-600 dark:text-blue-500">${notification.created_at}</div>
+    </div>`;
+    
+    let dot = document.getElementById('btnNotification');
+    dot.innerHTML = `<svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path></svg>
+    
+    <div class="relative flex" id="red_dot">
+      <div class="relative inline-flex w-3 h-3 bg-red-500 border-2 border-white rounded-full -top-2 right-3 dark:border-gray-900"></div>
+    </div>
+    `
+    
+    notificationArea.prepend(notificationNode);
+  })
+  
+  
+</script>
+@endpush

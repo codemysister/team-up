@@ -9,9 +9,8 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Log;
 
-class SendMessage implements ShouldBroadcast
+class MessageSent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -20,16 +19,10 @@ class SendMessage implements ShouldBroadcast
      *
      * @return void
      */
-    public $conversation;
-
-    public function __construct($conversation)
+    public $chat;
+    public function __construct($chat)
     {
-        $this->conversation = $conversation;
-    }
-
-    public function broadcastAs()
-    {
-        return 'kirim';
+        $this->chat = $chat;
     }
 
     /**
@@ -39,8 +32,7 @@ class SendMessage implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-
-        Log::debug("Created");
-        return new Channel('team.' . $this->conversation["team_id"]);
+        // info($this->chat[0]->channel);
+        return new PrivateChannel('team.' . $this->chat[0]->channel);
     }
 }

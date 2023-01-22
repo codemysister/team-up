@@ -15,7 +15,7 @@
               </svg>
               <span class="font-semibold"> <a href="{{url('/')}}">Home</a> </span>
             </li>
-            <li class="flex space-x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
+            <li class="flex {{ Request::path() == 'team-list' ? 'text-[#EC5252]' : '' }} space-x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -23,7 +23,7 @@
               </svg>
               <span class="font-semibold active:text-[#EC5252]"><a href="{{url('/team-list')}}">All Team</a></span>
             </li>
-            <li class="flex space-x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
+            <li class="flex {{ Request::path() == 'my-team' ? 'text-[#EC5252]' : '' }} space-x-2 mt-10 cursor-pointer active:text-[#EC5252] hover:text-[#EC5252] duration-150">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -32,9 +32,10 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
               </svg>
-              <span class="font-semibold"><a href="{{url('/my-team')}}">My Team</span>
+              <span class="font-semibold"><a href="{{url('/my-team')}}">My  Team</span>
             </li>
-            <li class="flex space-x-2 mt-10 cursor-pointer hover:text-[#EC5252] duration-150">
+      
+            <li class="flex {{ Request::path() == 'profile' ? 'text-[#EC5252]' : '' }} space-x-2 mt-10 cursor-pointer hover:text-[#EC5252] duration-150">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -42,13 +43,13 @@
               </svg>
               <span class="font-semibold"><a href="{{url('/profile')}}">Profile</a></span>
             </li>
-            <li class="flex space-x-2 mt-10 cursor-pointer hover:text-[#EC5252] duration-150">
+            <li class="flex {{ Request::path() == 'job-list' ? 'text-[#EC5252]' : '' }} space-x-2 mt-10 cursor-pointer hover:text-[#EC5252] duration-150">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
               </svg>
-              <span class="font-semibold"><a href="{{url('/setting')}}">Setting</a></span>
+              <span class="font-semibold"><a href="{{url('/job-list')}}">Job List</a></span>
             </li>
             <form action="{{url('logout')}}" method="POST">
               @csrf

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
   <link href="https://cdn.jsdelivr.net/npm/daisyui@2.33.0/dist/full.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+  {{-- <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" /> --}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   {{-- Fonts --}}
@@ -18,6 +18,7 @@
 
     {{-- boxicon --}}
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>Teamup</title>
 </head>
 <body class="bg-white">
@@ -26,7 +27,8 @@
 <nav class="bg-[#FFF5EC] font-poppins px-3 sm:px-4  py-2.5  fixed w-full z-20 top-0 left-0 border-gray-200 ">
   <div class="container flex flex-wrap justify-between items-center mx-auto">
   <a href="https://flowbite.com/" class="flex items-center">
-      <img src="{{asset('img/logo.png')}}" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo">
+      {{-- <img src="{{asset('img/logo.png')}}" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo"> --}}
+      <p class="text-4xl font-bold text-[#F2994A]">TeamUp</p>
   </a>
   <div class="flex md:order-2">
       <button type="button" class="text-white bg-[#F2994A] hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 "><a href="{{url('/login')}}">Login</a></button>
@@ -61,11 +63,11 @@
 <section id="home" class=""> 
   <div class="bg-[#FFF5EC]  overflow-x-hidden sm:flex sm:relative sm:overflow-y-hidden">
     <div class="sm:container sm:mx-auto">
-      <h1 class="px-3 sm:px-4   pt-24 sm:pt-28 xl:pt-32 sm:w-[60%]   text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:text-[40px] font-bold font-poppins text-center sm:text-left">Be a Leader or <span class="text-orange-400">Member</span> </h1>
+      <h1 class="px-3 sm:px-4 text-black  pt-24 sm:pt-28 xl:pt-32 sm:w-[60%]   text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:text-[40px] font-bold font-poppins text-center sm:text-left">Be a <span class="text-orange-400">Leader</span> or <span class="text-orange-400">Member</span> </h1>
         <p class="px-14  sm:px-4  sm:pt-2 pt-1 text-sm font-poppins text-center sm:text-left w-full sm:w-80 md:w-96 md:text-base ">Join your dream team and gain experience or invent your dream team</p>
         
         
-        <h5 class="px-14 text-center sm:text-left sm:px-4  pt-4 text-xl md:text-2xl xl:text-3xl font-poppins font-bold">Trending Jobs keyword </h5>
+        <h5 class="px-14 text-center sm:text-left sm:px-4  pt-4 text-xl md:text-2xl xl:text-3xl font-poppins font-bold">Trending Team keyword </h5>
   
         <h5 class="text-[#F2994A] font-poppins font-bold sm:text-base md:text-lg xl:text-2xl px-3 sm:px-4  pt-1 text-center sm:text-left"> <span class="pr-2">Web Designer UI/UX</span>   <span class="pr-2" >Designer </span> <span class=""> Frontend</span> </h5>
         <div class="mt-5 flex justify-center sm:justify-start sm:px-4 lg:pb-20 xl:pb-28">
@@ -770,7 +772,7 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-  <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+  {{-- <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script> --}}
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
