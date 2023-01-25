@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use Carbon\Carbon;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -20,9 +21,11 @@ class MessageSent implements ShouldBroadcast
      * @return void
      */
     public $chat;
+    public $dibuat;
     public function __construct($chat)
     {
         $this->chat = $chat;
+        $this->dibuat = Carbon::now()->format('H:i');
     }
 
     /**

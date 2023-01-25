@@ -19,7 +19,7 @@
     @if ($projects->hasPages())
     @foreach ($projects as $project)
     
-    <a href="https://www.freelancer.com/projects/{{$project['seo_url']}}" class="flex  mx-auto my-6 items-center bg-white border rounded-lg shadow-md md:max-w-4xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+    <a target="_blank" href="https://www.freelancer.com/projects/{{$project['seo_url']}}" class="flex  mx-auto my-6 items-center bg-white border rounded-lg shadow-md md:max-w-4xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
         <div class="flex-auto w-80 p-4">
             <div class="flex ">
                 <h1 class="font-bold text-zinc-700">{{$project['title']}}</h1>

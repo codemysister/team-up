@@ -173,10 +173,10 @@
                                             </div>
                                             
                                             <div class="basis-[30%] relative">
-                                                <input type="text" name="requirement[0][salary]" id="requirement" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="salary..." required>
+                                                <input type="text" name="requirement[0][salary]" id="requirement-salary" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="salary..." required>
                                             </div>
                                             
-                                            <div class="basis-[40%] relative">
+                                            <div class="basis-[40%] relative" id="qualification-area">
                                                 
                                                 <div class="relative">
                                                     
@@ -282,9 +282,7 @@
                     <div class="p-10 w-full  ">
                         <div class="flex justify-between items-center mb-4">
                             <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Member Team</h5>
-                            <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-                                View all
-                            </a>
+                            
                         </div>
                         <div class="flow-root">
                             <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -295,7 +293,24 @@
                                 <li class="py-3 sm:py-4">
                                     <div class="flex items-center space-x-4">
                                         <div class="flex-shrink-0">
-                                            <img class="w-8 h-8 rounded-full" src="{{$m->profile_image}}" alt="Neil image">
+                                           
+                                            
+                                            <button id="dropdownHoverButton{{$loop->index}}" data-dropdown-toggle="dropdownHover{{$loop->index}}" data-dropdown-trigger="hover" class="text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center " type="button">
+                                                <img class="w-8 h-8 rounded-full" src="{{$m->profile_image}}" alt="Neil image">
+                                            </button>
+                                            <!-- Dropdown menu -->
+                                            <div id="dropdownHover{{$loop->index}}" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                                                    <li>
+                                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Phone Number : {{$m->phone_number != null ? $m->phone_number : '-'}}</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Address : {{$m->address != null ? $m->address : '-'}}</a>
+                                                    </li>
+                                                   
+                                                </ul>
+                                            </div>
+                                            
                                         </div>
                                         <div class="flex-1 ">
                                             <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -936,25 +951,33 @@
         let chatGroup = document.getElementById('chat-group');
         chatGroup.scrollTo(0, document.getElementById('chat-group').scrollHeight);
         // let e = document.getElementById('teamID').value;  
-        Echo.private('team.'+uuidTeam).listen('MessageSent',({chat})=>{
+        Echo.private('team.'+uuidTeam).listen('MessageSent',(data)=>{
             
             
             
             let parent = document.createElement('div');
-            parent.className = 'flex mt-3 ml-3';
+            parent.className = 'flex mt-3 ml-3 w-[90%]';
             
             let img = document.createElement('img');
             img.className = 'w-8 h-8 rounded-full shadow-lg';
-            img.src = chat[0].profile_image;
+            img.src = data.chat[0].profile_image;
             
             let divChild = document.createElement('div');
-            divChild.className = 'ml-3 text-sm font-normal';
+            divChild.className = 'ml-3 text-sm font-normal w-5/6';
             
-            divChild.innerHTML = `<span class="mb-1 text-sm font-semibold text-gray-900 dark:text-white">${chat[0].name}</span>
-            <p>${chat[0].message}</p>`;
+            divChild.innerHTML = `<span class="mb-1 text-sm font-semibold text-gray-900 dark:text-white">${data.chat[0].name}</span>
+            <p>${data.chat[0].message}</p>`;
+
+            let clockNode = document.createElement('p');
+            clockNode.className = 'text-xs self-end';
+            clockNode.innerText = data.dibuat;
+
             parent.appendChild(img);
             parent.appendChild(divChild);
+            parent.appendChild(clockNode)
             
+          
+
             document.getElementById('chat-field').appendChild( parent);
             let chatGroup = document.getElementById('chat-group');
             chatGroup.scrollTo(0, document.getElementById('chat-group').scrollHeight);
@@ -1067,11 +1090,11 @@
                     .then((response)=>{
                         if(response.data.status == 'success'){
                             Swal.fire(
-                                'Deleted!',
-                                'Member has been kicked.',
-                                'success'
-                                )
-                            window.location.href == `/team-detail/${currentTeam}`;
+                            'Deleted!',
+                            'Member has been kicked.',
+                            'success'
+                            )
+                            window.location.href = `/team-detail/${currentTeam}`;
                         }
                     });
                 }
@@ -2184,7 +2207,7 @@
                     let requirements = [];
                     let requirement_role = document.querySelector(`input[name="requirement[0][role]"]`);
                     requirement_role.innerHTML = '';
-                    let requirement_salary = document.querySelector(`input[name="requirement[0][salary]"]`);
+                    let requirement_salary = document.getElementById(`requirement-salary`);
                     requirement_salary.innerHTML = '';
                     let nodeListQualification = document.querySelectorAll(`input[name="requirement[0][qualification][]`);
                     nodeListQualification.innerHTML = '';
@@ -2220,219 +2243,225 @@
                     )
                     
                     document.querySelector('input[name="requirement[0][role]"]').value = '';
-                    document.querySelectorAll(`input[name="requirement[0][qualification][]`).value;
+                    document.querySelectorAll(`input[name="requirement[0][qualification][]`).value = '';
                     
-                    // if(document.querySelector('.button-qualification-close')){
-                        //     document.querySelector('.button-qualification-close').click()
-                        // }
-                        // if(document.querySelector('.button-requirement-close')){
-                            //     document.querySelector('.button-requirement-close').click();
-                            // }
-                            listNameRequirement = [];
-                            listNameRequirement.push('0');
-                            
-                            // console.log(requirements);
-                            axios.post(`/team-detail/${currentTeam}/requirement`,{requirements,currentTeam})
-                            .then(function (response) {
-                                
-                                let targetEl = document.getElementById('btn-modal-requirement');
-                                targetEl.click();
-                                refreshRequirement(targetEl)
-                            })
-                            
+                    if(document.querySelector('.button-qualification-close')){
+                        document.querySelector('.button-qualification-close').click()
+                    }
+                    if(document.querySelector('.button-requirement-close')){
+                        document.querySelector('.button-requirement-close').click();
+                    }
+                    listNameRequirement = [];
+                    listNameRequirement.push('0');
+                    
+                    // console.log(requirements);
+                    axios.post(`/team-detail/${currentTeam}/requirement`,{requirements,currentTeam})
+                    .then(function (response) {
+                        
+                        let targetEl = document.getElementById('btn-modal-requirement');
+                        targetEl.click();
+                        refreshRequirement(targetEl);
+                        let requirement_salary = document.getElementById(`requirement-salary`);
+                        requirement_salary.value = '';
+                        let qualificationArea = document.getElementById('qualification-area');
+                        qualificationArea.innerHTML = '';
+                        qualificationArea.innerHTML = ` <div class="relative"><input name="requirement[0][qualification][]" id="qualification" class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="qualification" required>
+                            <button type="button" onclick="tambahChild(this,0)" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> <i class='bx bxs-plus-circle'></i></button></div>`
+                        })
+                        
+                    }
+                    
+                    
+                    let count = 0;
+                    
+                    function tambah(){
+                        
+                        
+                        let id = ++count;
+                        let el = document.getElementById('requirement');
+                        listNameRequirement.push(id);
+                        
+                        let parent = document.createElement('div');
+                        parent.className = 'flex justify-between gap-x-2 flex-row items-center mb-3';
+                        parent.id = 'requirement-'+id;
+                        
+                        let parentInput1 = document.createElement('div');
+                        parentInput1.className = 'basis-1/4';
+                        let child1 = document.createElement('input');
+                        child1.name = `requirement[${id}][role]`;
+                        child1.className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white';
+                        child1.placeholder = 'role...'
+                        parentInput1.appendChild(child1)
+                        
+                        
+                        let parentInput2 = document.createElement('div');
+                        parentInput2.className = 'basis-[75%]';
+                        
+                        let relativeChild = document.createElement('div');
+                        relativeChild.className = "relative";
+                        
+                        let child1Relative = document.createElement('input');
+                        child1Relative.className = 'block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500';
+                        child1Relative.placeholder = 'qualification';
+                        child1Relative.name = `requirement[${id}][qualification][]`;
+                        
+                        let child2Relative = document.createElement('button');
+                        child2Relative.type = 'button';
+                        child2Relative.className = 'text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800';
+                        let childIconRelative = document.createElement('i')
+                        childIconRelative.className = 'bx bxs-plus-circle'
+                        child2Relative.appendChild(childIconRelative);
+                        child2Relative.onclick = (id) =>{
+                            tambahChild(child2Relative, count);
                         }
                         
+                        relativeChild.appendChild(child1Relative)
+                        relativeChild.appendChild(child2Relative)
                         
-                        let count = 0;
+                        parentInput2.appendChild(relativeChild);
                         
-                        function tambah(){
-                            
-                            
-                            let id = ++count;
-                            let el = document.getElementById('requirement');
-                            listNameRequirement.push(id);
-                            
-                            let parent = document.createElement('div');
-                            parent.className = 'flex justify-between gap-x-2 flex-row items-center mb-3';
-                            parent.id = 'requirement-'+id;
-                            
-                            let parentInput1 = document.createElement('div');
-                            parentInput1.className = 'basis-1/4';
-                            let child1 = document.createElement('input');
-                            child1.name = `requirement[${id}][role]`;
-                            child1.className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white';
-                            child1.placeholder = 'role...'
-                            parentInput1.appendChild(child1)
-                            
-                            
-                            let parentInput2 = document.createElement('div');
-                            parentInput2.className = 'basis-[75%]';
-                            
-                            let relativeChild = document.createElement('div');
-                            relativeChild.className = "relative";
-                            
-                            let child1Relative = document.createElement('input');
-                            child1Relative.className = 'block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500';
-                            child1Relative.placeholder = 'qualification';
-                            child1Relative.name = `requirement[${id}][qualification][]`;
-                            
-                            let child2Relative = document.createElement('button');
-                            child2Relative.type = 'button';
-                            child2Relative.className = 'text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800';
-                            let childIconRelative = document.createElement('i')
-                            childIconRelative.className = 'bx bxs-plus-circle'
-                            child2Relative.appendChild(childIconRelative);
-                            child2Relative.onclick = (id) =>{
-                                tambahChild(child2Relative, count);
+                        let parentInput3 = document.createElement('div');
+                        parentInput3.className = 'basis-1/8';
+                        let button = document.createElement('button');
+                        button.className = 'button-requirement-close';
+                        button.type = 'button';
+                        let icon = document.createElement('i');
+                        icon.className='bx bxs-minus-circle';
+                        button.appendChild(icon);
+                        button.onclick = () => {
+                            remove(button);
+                        }
+                        parentInput3.appendChild(button);
+                        
+                        parent.appendChild(parentInput1)
+                        parent.appendChild(parentInput2)
+                        parent.appendChild(parentInput3)
+                        
+                        
+                        el.appendChild(parent)
+                    }
+                    
+                    
+                    
+                    function remove(e) {
+                        let parent1 = e.parentNode;
+                        parent1.parentNode.remove();
+                    }
+                    
+                    function apply(pelamar)
+                    {
+                        // console.log(pelamar.dataset.id);
+                        
+                        Swal.fire({
+                            title: 'Are you sure?',
+                            text: "You won't be able to revert this!",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, Approve it!'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                axios.post(`/team-detail/acc`, {
+                                    user_id: pelamar.dataset.id,
+                                    team_id: pelamar.dataset.team
+                                })
+                                .then(function (response) {
+                                    window.location.href = response.data.link;
+                                })
+                                
+                                Swal.fire(
+                                'Accepted!',
+                                'Applicant has been accepted.',
+                                'success'
+                                )
                             }
-                            
-                            relativeChild.appendChild(child1Relative)
-                            relativeChild.appendChild(child2Relative)
-                            
-                            parentInput2.appendChild(relativeChild);
-                            
-                            let parentInput3 = document.createElement('div');
-                            parentInput3.className = 'basis-1/8';
-                            let button = document.createElement('button');
-                            button.className = 'button-requirement-close';
-                            button.type = 'button';
-                            let icon = document.createElement('i');
-                            icon.className='bx bxs-minus-circle';
-                            button.appendChild(icon);
-                            button.onclick = () => {
-                                remove(button);
+                        })
+                        
+                    }
+                    function reject(pelamar)
+                    {
+                        // console.log(pelamar.dataset.id);
+                        
+                        Swal.fire({
+                            title: 'Are you sure?',
+                            text: "You won't be able to revert this!",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, Approve it!'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                axios.post(`/team-detail/reject`, {
+                                    user_id: pelamar.dataset.id,
+                                    team_id: pelamar.dataset.team
+                                })
+                                .then(function (response) {
+                                    window.location.href = response.data.link;
+                                })
+                                
+                                Swal.fire(
+                                'Rejected!',
+                                'Applicant has been rejected.',
+                                'success'
+                                )
                             }
-                            parentInput3.appendChild(button);
-                            
-                            parent.appendChild(parentInput1)
-                            parent.appendChild(parentInput2)
-                            parent.appendChild(parentInput3)
-                            
-                            
-                            el.appendChild(parent)
-                        }
+                        })
                         
-                        
-                        
-                        function remove(e) {
-                            let parent1 = e.parentNode;
-                            parent1.parentNode.remove();
-                        }
-                        
-                        function apply(pelamar)
-                        {
-                            // console.log(pelamar.dataset.id);
-                            
-                            Swal.fire({
-                                title: 'Are you sure?',
-                                text: "You won't be able to revert this!",
-                                icon: 'warning',
-                                showCancelButton: true,
-                                confirmButtonColor: '#3085d6',
-                                cancelButtonColor: '#d33',
-                                confirmButtonText: 'Yes, Approve it!'
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    axios.post(`/team-detail/acc`, {
-                                        user_id: pelamar.dataset.id,
-                                        team_id: pelamar.dataset.team
-                                    })
-                                    .then(function (response) {
-                                        window.location.href = response.data.link;
-                                    })
-                                    
-                                    Swal.fire(
-                                    'Accepted!',
-                                    'Applicant has been accepted.',
-                                    'success'
-                                    )
-                                }
-                            })
-                            
-                        }
-                        function reject(pelamar)
-                        {
-                            // console.log(pelamar.dataset.id);
-                            
-                            Swal.fire({
-                                title: 'Are you sure?',
-                                text: "You won't be able to revert this!",
-                                icon: 'warning',
-                                showCancelButton: true,
-                                confirmButtonColor: '#3085d6',
-                                cancelButtonColor: '#d33',
-                                confirmButtonText: 'Yes, Approve it!'
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    axios.post(`/team-detail/reject`, {
-                                        user_id: pelamar.dataset.id,
-                                        team_id: pelamar.dataset.team
-                                    })
-                                    .then(function (response) {
-                                        window.location.href = response.data.link;
-                                    })
-                                    
-                                    Swal.fire(
-                                    'Rejected!',
-                                    'Applicant has been rejected.',
-                                    'success'
-                                    )
-                                }
-                            })
-                            
-                        }
-                        
-                        
-                        
-                        function updateDesc()
-                        {
-                            Swal.fire(
-                            'Success!',
-                            'Description has been updated.',
-                            'success'
-                            )
-                            axios.put(`/team-detail/${currentTeam}/profile/change-description`, {
-                                description: document.getElementById('description').value,
-                                // _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                            }).then(function (response) {
-                                
-                                let description = document.getElementById('description_team').innerText = response.data.new_desc;
-                                let targetEl = document.getElementById('btn-modal-desc');
-                                targetEl.click();
-                                
-                                
-                            })
-                        }
-                        
-                        function updateName()
-                        {
-                            Swal.fire(
-                            'Success!',
-                            'Team Name has been updated.',
-                            'success'
-                            )
-                            axios.put(`/team-detail/${currentTeam}/profile/change-name`, {
-                                team_name: document.getElementById('name').value,
-                                // _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                            }).then(function (response) {
-                                currentTeam = response.data.slug;
-                                console.log(currentTeam);
-                                axios.get(`/team-detail/${currentTeam}/fetch`);
-                                
-                                let name = document.getElementById('team_name').innerText = response.data.new_name;
-                                // window.history.replaceState( "/team-detail/"+currentTeam);
-                                
-                                let stateObj = { id: "100" };
-                                window.history.replaceState(stateObj,
-                                currentTeam, "/team-detail/"+currentTeam);
-                                
-                                let targetEl = document.getElementById('btn-modal-name');
-                                targetEl.click();
-                                
-                                
-                            })
-                        }
-                    </script>
+                    }
                     
                     
-                    @endpush
+                    
+                    function updateDesc()
+                    {
+                        Swal.fire(
+                        'Success!',
+                        'Description has been updated.',
+                        'success'
+                        )
+                        axios.put(`/team-detail/${currentTeam}/profile/change-description`, {
+                            description: document.getElementById('description').value,
+                            // _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        }).then(function (response) {
+                            
+                            let description = document.getElementById('description_team').innerText = response.data.new_desc;
+                            let targetEl = document.getElementById('btn-modal-desc');
+                            targetEl.click();
+                            
+                            
+                        })
+                    }
+                    
+                    function updateName()
+                    {
+                        Swal.fire(
+                        'Success!',
+                        'Team Name has been updated.',
+                        'success'
+                        )
+                        axios.put(`/team-detail/${currentTeam}/profile/change-name`, {
+                            team_name: document.getElementById('name').value,
+                            // _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        }).then(function (response) {
+                            currentTeam = response.data.slug;
+                            console.log(currentTeam);
+                            axios.get(`/team-detail/${currentTeam}/fetch`);
+                            
+                            let name = document.getElementById('team_name').innerText = response.data.new_name;
+                            // window.history.replaceState( "/team-detail/"+currentTeam);
+                            
+                            let stateObj = { id: "100" };
+                            window.history.replaceState(stateObj,
+                            currentTeam, "/team-detail/"+currentTeam);
+                            
+                            let targetEl = document.getElementById('btn-modal-name');
+                            targetEl.click();
+                            
+                            
+                        })
+                    }
+                </script>
+                
+                
+                @endpush

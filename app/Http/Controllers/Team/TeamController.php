@@ -191,7 +191,7 @@ class TeamController extends Controller
             ->join('users', 'users.id', '=', 'members.user_id')
             ->join('team_has_role', 'team_has_role.id', '=', 'members.role_id')
             ->where('members.team_id', '=', $tim->id)
-            ->select('members.*', 'users.profile_image', 'users.name', 'users.email', 'team_has_role.*')
+            ->select('members.*', 'users.profile_image', 'users.name', 'users.email', 'users.phone_number', 'users.address', 'team_has_role.*')
             ->get();
 
         $pelamar = DB::table('applicants')
@@ -366,6 +366,8 @@ class TeamController extends Controller
             'message' => "Sorry, you don't meet our team's criteria ($team->name)",
             'is_read' => false
         ]);
+
+
 
         broadcast(new NotificationSend($notification))->toOthers();
 

@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use Carbon\Carbon;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -20,8 +21,11 @@ class NotificationSend implements ShouldBroadcast
      * @return void
      */
     public $notification;
+    public $dibuat;
     public function __construct($notification)
     {
+        $this->dibuat = Carbon::create(now())->diffForHumans();
+
         $this->notification = $notification;
     }
 
