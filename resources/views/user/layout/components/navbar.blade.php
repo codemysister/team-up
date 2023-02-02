@@ -42,7 +42,7 @@
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
       d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
     </svg>
-    <span class="font-semibold"><a href="{{url('/my-team')}}">My Team</span>
+    <span class="font-semibold"><a href="{{url('/my-team')}}">My Team</a></span>
     </li>
     <li class="flex space-x-2 mt-10 cursor-pointer hover:text-[#EC5252] duration-150">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -60,7 +60,10 @@
   </svg>
   <span class="font-semibold"><a href="{{url('/setting')}}">Setting</a></span>
 </li>
-<button class="w-full mt-10 bg-[#EC5252] rounded-full py-1.5 text-white">Logout</button>
+<form action="{{url('logout')}}" method="POST">
+  @csrf
+  <button type="submit" class="w-full mt-10 bg-[#EC5252] rounded-full py-1.5 text-white">Logout</button>
+</form>
 </ul>
 </div>
 </div>
@@ -86,10 +89,9 @@
 </form>
 
 
-<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-4 ">
   
-  
-  <button id="btnNotification" onclick="{{$notificationStatus != 0 ? 'updateStatusNotif()' : ''}}" data-dropdown-toggle="dropdownNotification" class="inline-flex items-center text-sm font-medium text-center text-gray-500 hover:text-gray-900 focus:outline-none dark:hover:text-white dark:text-gray-400" type="button"> 
+  <button id="btnNotification" onclick="{{$notificationStatus != 0 ? 'updateStatusNotif()' : ''}}" data-dropdown-toggle="dropdownNotification" class="hidden sm:block inline-flex items-center text-sm font-medium text-center text-gray-500 hover:text-gray-900 focus:outline-none dark:hover:text-white dark:text-gray-400" type="button"> 
     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path></svg>
     @if ($notificationStatus != 0)  
     <div class="relative flex" id="red_dot">
@@ -160,6 +162,20 @@
   
   
 </form>
+
+@isset($owner->id)
+@if ($owner->id == Auth::user()->id)
+<div class="inline-block sm:hidden rounded-t-lg text-sm text-gray-500">
+  <label class="inline-flex relative items-center mr-5  cursor-pointer">
+      <input type="checkbox" value="{{$tim->status}}" onclick="updateStatusTim()" class="sr-only peer" 
+      {{ $tim->status == 'open' ? 'checked' : ''}} >
+      <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
+      <span id="status-tim" class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">{{$tim->status}}</span>
+  </label>
+</div>
+@endif
+@endisset
+
 
 <div class="flex items-center space-x-4">
   

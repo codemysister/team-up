@@ -4,12 +4,12 @@
 
 
 
-<div class="md:flex font-poppins">
+<div class="md:flex font-poppins ">
     
-    <div class=" bg-[#FFF5EC] p-4 rounded-2xl w-full sm:w-[600px] md:w-[600px]  mx-10 mt-5 shadow-xl">
+    <div class=" bg-[#FFF5EC] p-4 rounded-2xl w-full sm:w-[600px] md:w-[600px]  sm:mx-10 mt-5 shadow-xl">
         
         <div class="mb-4 border-b border-gray-200  text-lg">
-            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+            <ul class=" hidden sm:flex sm:flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
                 <li class="mr-2" role="presentation">
                     <button class="inline-block p-4 pt-6 rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 text-sm dark:border-blue-500" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="true">Profile Team</button>
                 </li>
@@ -279,7 +279,7 @@
                 <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="settings" role="tabpanel" aria-labelledby="settings-tab">
                     
                     
-                    <div class="p-10 w-full  ">
+                    <div class=" w-full  ">
                         <div class="flex justify-between items-center mb-4">
                             <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Member Team</h5>
                             
@@ -293,7 +293,7 @@
                                 <li class="py-3 sm:py-4">
                                     <div class="flex items-center space-x-4">
                                         <div class="flex-shrink-0">
-                                           
+                                            
                                             
                                             <button id="dropdownHoverButton{{$loop->index}}" data-dropdown-toggle="dropdownHover{{$loop->index}}" data-dropdown-trigger="hover" class="text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center " type="button">
                                                 <img class="w-8 h-8 rounded-full" src="{{$m->profile_image}}" alt="Neil image">
@@ -307,7 +307,7 @@
                                                     <li>
                                                         <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Address : {{$m->address != null ? $m->address : '-'}}</a>
                                                     </li>
-                                                   
+                                                    
                                                 </ul>
                                             </div>
                                             
@@ -582,7 +582,7 @@
             <ul class="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
                 
                 @if ($pelamar->count() == 0)
-                <p>You don't have any applicant</p>
+                <p>No applicants</p>
                 @else
                 @foreach ($pelamar as $p)  
                 
@@ -934,6 +934,48 @@
     </div>
 </div>
 
+
+
+<nav class="bg-white px-2  sm:px-4 py-5 dark:bg-gray-900 fixed w-full z-20 bottom-0 left-0 border-t-2 rounded-r rounded-t border-gray-200 dark:border-gray-600">
+    <div class="container flex flex-wrap items-center justify-between mx-auto">
+      
+      
+        <div class="items-center justify-between  w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+            <ul class="flex flex-nowrap items-center text-sm font-medium  " id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+                <li class=" flex-1  text-center" role="presentation">
+                    <button class="inline-block  rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 text-sm dark:border-blue-500" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="true">Profile</button>
+                </li>
+                <li class=" flex-1  text-center" role="presentation">
+                    <button class="inline-block  rounded-t-lg border-b-2 ml-1  text-gray-500 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 text-sm dark:border-blue-500" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Requirement</button>
+                </li>
+                
+                <li class=" flex-1  text-center" role="presentation">
+                    <button class="inline-block   rounded-t-lg border-b-2 ml-5 text-gray-500 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 text-sm dark:border-blue-500" id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Member</button>
+                </li>
+                
+                @if ($isMember != null || $owner->id == Auth::user()->id)
+                <li class="flex-1  text-center" role="presentation" >
+                    <button class="inline-block   rounded-t-lg border-b-2  text-gray-500 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 text-sm dark:border-blue-500" id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab" aria-controls="contacts" aria-selected="false">Task</button>
+                </li>
+                @endif
+                
+                
+                @if ($tim->status == 'open' && Auth::user()->hasRole('member') && $isMember == null && $isApplicant == null)
+                <li class="flex-1 text-center" role="presentation">
+                  
+                    <button data-modal-toggle="modalApply" type="button" class="inline-block   rounded-t-lg border-b-2 text-sm text-gray-500 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500  text-sm dark:border-blue-500" >Apply</button>
+                </li>
+                @endif
+                
+                
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</nav>
+
+
 @endsection
 
 @push('script')
@@ -967,17 +1009,17 @@
             
             divChild.innerHTML = `<span class="mb-1 text-sm font-semibold text-gray-900 dark:text-white">${data.chat[0].name}</span>
             <p>${data.chat[0].message}</p>`;
-
+            
             let clockNode = document.createElement('p');
             clockNode.className = 'text-xs self-end';
             clockNode.innerText = data.dibuat;
-
+            
             parent.appendChild(img);
             parent.appendChild(divChild);
             parent.appendChild(clockNode)
             
-          
-
+            
+            
             document.getElementById('chat-field').appendChild( parent);
             let chatGroup = document.getElementById('chat-group');
             chatGroup.scrollTo(0, document.getElementById('chat-group').scrollHeight);

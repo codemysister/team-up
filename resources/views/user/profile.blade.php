@@ -10,7 +10,7 @@
       </div>
     @endif
     
-    <div class=" mt-5 mx-10 w-[800px]  bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div class=" mt-5 p-5 sm:mx-10 w-full sm:w-[800px]  bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
         
         <h1 class="text-[25px] ">Avatar</h1>
         <div class="flex">
