@@ -324,9 +324,9 @@
                                         </div>
                                         
                                         
-                                        <div>
-                                            <p>
-                                                <span class=" text-xs text-white font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800" style="background-color: {{$m->color}}">{{$m->role}}</span>
+                                        <div class="flex-initial w-20">
+                                            <p class=" text-xs text-white font-semibold mr-2 px-2.5 py-0.5 break-words rounded dark:bg-blue-200 dark:text-blue-800" style="background-color: {{$m->color}}">
+                                                {{$m->role}}
                                             </p>
                                             
                                             @if ($owner->user_id == Auth::user()->id)
