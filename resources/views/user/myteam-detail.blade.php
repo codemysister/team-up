@@ -315,16 +315,27 @@
                                         <div class="flex-1 ">
                                             <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
                                                 {{$m->name}}
+                                                
+                                                
                                             </p>
                                             <p class="text-sm text-gray-500 truncate dark:text-gray-400">
                                                 {{$m->email}}
                                             </p>
                                             
-                                            
+                                            <span class=" text-xs sm:hidden text-white font-semibold  px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800" style="background-color: {{$m->color}}">{{$m->role}}</span>
+                                                
+                                                
+                                                @if ($owner->user_id == Auth::user()->id)
+                                                @if ( $m->user_id != $owner->user_id )
+                                                <button class="inline sm:hidden" onclick="kick({{$m->user_id}})">
+                                                    <span class="text-white bg-red-600 text-xs font-medium px-2.5 py-0.5 rounded" >Kick</span>
+                                                </button>
+                                                @endif
+                                                @endif
                                         </div>
                                         
                                         
-                                        <div>
+                                        <div class="hidden sm:inline-block">
                                             <p>
                                                 <span class=" text-xs text-white font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800" style="background-color: {{$m->color}}">{{$m->role}}</span>
                                             </p>
@@ -936,10 +947,10 @@
 
 
 
-<nav class="bg-white px-2  sm:px-4 py-5 dark:bg-gray-900 fixed w-full z-20 bottom-0 left-0 border-t-2 rounded-r rounded-t border-gray-200 dark:border-gray-600">
+<nav class="bg-white px-2 sm:px-4 py-5 dark:bg-gray-900 fixed w-full z-20 sm:hidden bottom-0 left-0 border-t-2 rounded-r rounded-t border-gray-200 dark:border-gray-600">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
-      
-      
+        
+        
         <div class="items-center justify-between  w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
             <ul class="flex flex-nowrap items-center text-sm font-medium  " id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
                 <li class=" flex-1  text-center" role="presentation">
@@ -962,17 +973,17 @@
                 
                 @if ($tim->status == 'open' && Auth::user()->hasRole('member') && $isMember == null && $isApplicant == null)
                 <li class="flex-1 text-center" role="presentation">
-                  
+                    
                     <button data-modal-toggle="modalApply" type="button" class="inline-block   rounded-t-lg border-b-2 text-sm text-gray-500 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500  text-sm dark:border-blue-500" >Apply</button>
                 </li>
                 @endif
                 
                 
-                </ul>
-            </div>
-            
+            </ul>
         </div>
+        
     </div>
+</div>
 </nav>
 
 
