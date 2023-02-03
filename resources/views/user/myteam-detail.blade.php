@@ -324,7 +324,7 @@
                                         </div>
                                         
                                         
-                                        <div class="flex-initial w-20">
+                                        <div class="flex-initial w-20 sm:flex-none">
                                             <p class=" text-xs text-white font-semibold mr-2 px-2.5 py-0.5 break-words rounded dark:bg-blue-200 dark:text-blue-800" style="background-color: {{$m->color}}">
                                                 {{$m->role}}
                                             </p>
