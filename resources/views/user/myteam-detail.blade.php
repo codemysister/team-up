@@ -335,9 +335,11 @@
                                         </div>
                                         
                                         
+
                                         <div class="hidden sm:inline-block">
                                             <p>
                                                 <span class=" text-xs text-white font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800" style="background-color: {{$m->color}}">{{$m->role}}</span>
+
                                             </p>
                                             
                                             @if ($owner->user_id == Auth::user()->id)
